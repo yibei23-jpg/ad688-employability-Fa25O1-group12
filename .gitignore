@@ -205,3 +205,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+/.quarto/
+**/*.quarto_ipynb
+>>>>>>> 309e2c9 (Initial Quarto site setup)

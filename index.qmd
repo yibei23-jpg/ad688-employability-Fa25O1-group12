@@ -1,0 +1,18 @@
+---
+title: "Business Analytics, Data Science, and Machine Learning Trends"
+author: "Group 12: Yibei Yu, Fuhan Zhang, Jonathan Leon"
+date: "2025-09-12"
+format:
+  html:
+    toc: true
+    bibliography: references.bib
+    csl: csl/econometrica.csl
+---
+
+## Introduction
+
+Our project focuses on identifying job market trends for business analytics, data science, and machine learning professionals in 2024. As the job landscape shifts due to AI and automation, understanding what skills, tools, and roles are most in demand is critical for effective career planning.
+
+## Research Rationale
+
+The rapid evolution of AI and data-driven decision-making has reshaped hiring expectations for analytics professionals. Employers now seek individuals who not only analyze data but also deploy predictive models, build dashboards, and communicate insights. Our team aims to understand these changing demands by analyzing job postings, industry trends, and academic insights.
