@@ -1,0 +1,22 @@
+---
+title: "Research Introduction"
+format: html
+---
+
+## Introduction
+
+Our research project focuses on **Business Analytics, Data Science, and Machine Learning (ML)** job market trends in 2024. We aim to understand:
+
+- What skills are in high demand for analytics/ML roles
+- How job descriptions are evolving post-ChatGPT
+- Which industries are hiring most aggressively and why
+- What the career outlook is for analytics graduates
+
+We explore these questions by analyzing job descriptions and articles from reputable sources such as:
+- Google Scholar
+- McKinsey & Company
+- LinkedIn reports
+- Government and university databases
+
+This introduction sets the stage for deeper analysis in the following pages.
+
