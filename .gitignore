@@ -209,3 +209,5 @@ __marimo__/
 /.quarto/
 **/*.quarto_ipynb
 >>>>>>> 309e2c9 (Initial Quarto site setup)
+data/lightcast_job_postings.csv
+
