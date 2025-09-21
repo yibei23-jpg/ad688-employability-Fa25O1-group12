@@ -16,3 +16,20 @@ format:
     number-sections: true
     df-print: paged
 ---
+
+
+```{python}
+import pandas as pd
+import missingno as msno
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("_site/lightcast_job_postings.csv")
+print(df.columns.tolist())
+
+columns_to_drop = [
+    "ID", "URL", "ACTIVE_URLS", "DUPLICATES", "LAST_UPDATED_TIMESTAMP",
+    "NAICS2", "NAICS3", "NAICS4", "NAICS5", "NAICS6",
+    "SOC_2", "SOC_3", "SOC_5"
+]
+df.drop(columns=columns_to_drop, inplace=True, errors="ignore")
+```
