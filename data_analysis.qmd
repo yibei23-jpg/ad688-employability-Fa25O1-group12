@@ -22,7 +22,10 @@ format:
 import pandas as pd
 import missingno as msno
 import matplotlib.pyplot as plt
-
+import numpy as np
+import missingno as msno
+import matplotlib.pyplot as plt
+df = pd.read_csv("data/lightcast_job_postings.csv")
 df = pd.read_csv("_site/lightcast_job_postings.csv")
 print(df.columns.tolist())
 
@@ -32,4 +35,63 @@ columns_to_drop = [
     "SOC_2", "SOC_3", "SOC_5"
 ]
 df.drop(columns=columns_to_drop, inplace=True, errors="ignore")
+
+plt.figure(figsize=(10,6))
+msno.heatmap(df)
+plt.title("Missing Values Heatmap")
+plt.tight_layout()
+thresh = len(df) * 0.5
+df = df.loc[:, df.notna().sum() >= thresh]
+df.shape
+
+num_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+cat_cols = [c for c in df.columns if c not in num_cols]
+for c in num_cols:
+    df[c] = pd.to_numeric(df[c], errors="coerce")
+df[num_cols] = df[num_cols].fillna(df[num_cols].median())
+for c in cat_cols:
+    df[c] = df[c].fillna("Unknown")
+salary_candidates = ["SALARY", "Salary", "Average_Salary", "AVERAGE_SALARY"]
+salary_col = next((c for c in salary_candidates if c in df.columns), None)
+
+if salary_col:
+    df[salary_col] = pd.to_numeric(df[salary_col], errors="coerce")
+    q1, q3 = df[salary_col].quantile([0.25, 0.75])
+    iqr = q3 - q1
+    lo, hi = q1 - 1.5*iqr, q3 + 1.5*iqr
+    df[salary_col] = df[salary_col].clip(lower=lo, upper=hi)
+dup_keys = [c for c in ["TITLE", "COMPANY", "LOCATION", "POSTED"] if c in df.columns]
+if dup_keys:
+    before = len(df)
+    df = df.drop_duplicates(subset=dup_keys, keep="first")
+    after = len(df)
+    print(f"Removed duplicates: {before - after}")
+else:
+    df = df.drop_duplicates()
+if "Industry" in df.columns:
+    plt.figure(figsize=(10,5))
+    df["Industry"].value_counts().head(15).plot(kind="bar")
+    plt.title("Job Postings by Industry (Top 15)")
+    plt.xlabel("Industry")
+    plt.ylabel("Count")
+    plt.tight_layout()
+if salary_col and "Industry" in df.columns:
+    plt.figure(figsize=(12,6))
+    top_ind = df["Industry"].value_counts().head(10).index
+    tmp = df[df["Industry"].isin(top_ind)]
+    tmp.boxplot(column=salary_col, by="Industry", rot=45)
+    plt.title(f"Salary Distribution by Industry ({salary_col})")
+    plt.suptitle("")
+    plt.xlabel("Industry")
+    plt.ylabel("Salary")
+    plt.tight_layout()
+
+remote_col = next((c for c in ["REMOTE_TYPE_NAME","REMOTE_TYPE","Remote_Type","REMOTE_GROUP"] if c in df.columns), None)
+if remote_col:
+    plt.figure(figsize=(6,6))
+    df[remote_col].fillna("Unknown").value_counts().plot(kind="pie", autopct="%1.1f%%")
+    plt.title("Remote vs. On-Site Jobs")
+    plt.ylabel("")
+    plt.tight_layout()
+
 ```
