@@ -75,6 +75,7 @@ if "Industry" in df.columns:
     plt.xlabel("Industry")
     plt.ylabel("Count")
     plt.tight_layout()
+    plt.show()
 if salary_col and "Industry" in df.columns:
     plt.figure(figsize=(12,6))
     top_ind = df["Industry"].value_counts().head(10).index
@@ -85,7 +86,7 @@ if salary_col and "Industry" in df.columns:
     plt.xlabel("Industry")
     plt.ylabel("Salary")
     plt.tight_layout()
-
+    plt.show()
 remote_col = next((c for c in ["REMOTE_TYPE_NAME","REMOTE_TYPE","Remote_Type","REMOTE_GROUP"] if c in df.columns), None)
 if remote_col:
     plt.figure(figsize=(6,6))
@@ -93,5 +94,5 @@ if remote_col:
     plt.title("Remote vs. On-Site Jobs")
     plt.ylabel("")
     plt.tight_layout()
-
+    plt.show()
 ```
