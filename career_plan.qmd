@@ -9,11 +9,14 @@ As students preparing to enter the analytics and data science job market, we wan
 
 ### Yibei's Plan
 I am particularly interested in pursuing a career in data analytics or fixed-income research. Through this project, I’ve improved my ability to use data sources, citation management, and Quarto — skills highly valued by employers.
+### Fuhan's Plan
+I hope to develop a career path in the field of risk management or actuarial analysis. My undergraduate background in actuarial science has equipped me with a solid mathematical foundation and financial mathematical literacy. I have a certain theoretical foundation in probability models, life and property insurance pricing, and financial risk control. My short-term goal is to obtain a risk management or actuarial internship opportunity in the spring of 2026, preferably related to insurance companies, reinsurance companies, or financial institutions.
 
 > Example goals:
 > - Data Analyst Internship Opportunities Spring 2026
 > - Learn Python, SQL, R, and Excel Modeling
 > - Understand Industry Trends in AI/ML Applications
+
 
 ---
 

@@ -1,22 +1,17 @@
 ---
-title: "Research Introduction"
-format: html
+title: "Research Introduction: AI vs. Non-AI Careers"
+author: " Group 12 "
+date: 2025-09-27
+toc: true
+bibliography: references.bib
+csl: csl/econometrica.csl
+format:
+  html: default
 ---
+@yuanuse
+@badhon2024enhancing
+@timpone2025ai
+@li2024preparing
+@modak2024review
 
-## Introduction
-
-Our research project focuses on **Business Analytics, Data Science, and Machine Learning (ML)** job market trends in 2024. We aim to understand:
-
-- What skills are in high demand for analytics/ML roles
-- How job descriptions are evolving post-ChatGPT
-- Which industries are hiring most aggressively and why
-- What the career outlook is for analytics graduates
-
-We explore these questions by analyzing job descriptions and articles from reputable sources such as:
-- Google Scholar
-- McKinsey & Company
-- LinkedIn reports
-- Government and university databases
-
-This introduction sets the stage for deeper analysis in the following pages.
-
+## References

@@ -26,7 +26,6 @@ import numpy as np
 import missingno as msno
 import matplotlib.pyplot as plt
 df = pd.read_csv("data/lightcast_job_postings.csv")
-df = pd.read_csv("_site/lightcast_job_postings.csv")
 print(df.columns.tolist())
 
 columns_to_drop = [
