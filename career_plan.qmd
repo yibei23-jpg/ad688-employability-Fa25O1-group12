@@ -12,6 +12,9 @@ I am particularly interested in pursuing a career in data analytics or fixed-inc
 ### Fuhan's Plan
 I hope to develop a career path in the field of risk management or actuarial analysis. My undergraduate background in actuarial science has equipped me with a solid mathematical foundation and financial mathematical literacy. I have a certain theoretical foundation in probability models, life and property insurance pricing, and financial risk control. My short-term goal is to obtain a risk management or actuarial internship opportunity in the spring of 2026, preferably related to insurance companies, reinsurance companies, or financial institutions.
 
+### Jonathan's Plan
+I have spent my 13+ year career in property insurance, where I have seen how outdated and manual many data processes remain. While the industry is now embracing digital transformation and AI, gaps still exist between development teams and business users. My goal is to build the technical and analytical skills needed to bridge this divide, ensuring tools deliver real business value. To do this, I plan to strengthen my programming (Python, SQL), cloud analytics, and data visualization skills while deepening my business analytics expertise.
+
 > Example goals:
 > - Data Analyst Internship Opportunities Spring 2026
 > - Learn Python, SQL, R, and Excel Modeling
