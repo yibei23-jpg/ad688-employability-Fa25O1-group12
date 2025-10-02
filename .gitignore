@@ -212,3 +212,6 @@ __marimo__/
 data/lightcast_job_postings.csv
 
 data/lightcast_job_postings.csv
+
+*.csv
+
