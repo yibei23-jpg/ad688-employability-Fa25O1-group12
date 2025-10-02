@@ -1,0 +1,81 @@
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+from IPython.display import display
+
+os.makedirs("figures", exist_ok=True)
+
+df = pd.read_csv("data/lightcast_job_postings.csv")
+```
+
+```{python}
+# --- Salary setup ---
+if "SALARY_FROM" in df.columns and "SALARY_TO" in df.columns:
+    df["AVG_SALARY"] = (
+        pd.to_numeric(df["SALARY_FROM"], errors="coerce") +
+        pd.to_numeric(df["SALARY_TO"], errors="coerce")
+    ) / 2
+
+salary_candidates = ["AVG_SALARY", "SALARY", "Average_Salary", "AVERAGE_SALARY"]
+salary_col = next((c for c in salary_candidates if c in df.columns), None)
+
+# --- Industry setup ---
+industry_candidates = ["Industry", "NAICS_2022_4_NAME", "LIGHTCAST_SECTORS_NAME"]
+industry_col = next((c for c in industry_candidates if c in df.columns), None)
+
+print("Detected salary_col:", salary_col)
+print("Detected industry_col:", industry_col)
+
+```
+
+```{python}
+# --- Job postings by Industry ---
+if industry_col:
+    plt.figure(figsize=(10,5))
+    df[industry_col].value_counts().head(15).plot(kind="bar")
+    plt.title(f"Job Postings by {industry_col} (Top 15)")
+    plt.xlabel(industry_col)
+    plt.ylabel("Count")
+    plt.tight_layout()
+    plt.savefig("figures/job_postings_by_industry.png", dpi=300, bbox_inches="tight")
+    display(plt.gcf())
+    plt.close()
+
+# --- Salary distribution by Industry ---
+if salary_col and industry_col:
+    df[salary_col] = pd.to_numeric(df[salary_col], errors="coerce")
+    tmp = df[[industry_col, salary_col]].dropna()
+
+    if not tmp.empty:
+        top_ind = tmp[industry_col].value_counts().head(10).index
+        tmp = tmp[tmp[industry_col].isin(top_ind)]
+
+        plt.figure(figsize=(14,8)) 
+        tmp.boxplot(column=salary_col, by=industry_col)
+
+        plt.title(f"Salary Distribution by {industry_col} ({salary_col})", fontsize=14)
+        plt.suptitle("")
+        plt.xlabel("Industry", fontsize=12)
+        plt.ylabel("Salary", fontsize=12)
+        plt.xticks(rotation=30, ha="right", fontsize=10)
+        plt.tight_layout()
+        plt.savefig("figures/salary_distribution_by_industry.png", dpi=300, bbox_inches="tight")
+        display(plt.gcf())
+        plt.close()
+
+# --- Remote vs On-site ---
+remote_col = next((c for c in ["REMOTE_TYPE_NAME","REMOTE_TYPE","Remote_Type","REMOTE_GROUP"] if c in df.columns), None)
+if remote_col:
+    plt.figure(figsize=(6,6))
+    df[remote_col].fillna("Unknown").value_counts().plot(kind="pie", autopct="%1.1f%%")
+    plt.title("Remote vs. On-Site Jobs")
+    plt.ylabel("")
+    plt.tight_layout()
+    plt.savefig("figures/remote_vs_onsite.png", dpi=300, bbox_inches="tight")
+    display(plt.gcf())
+    plt.close()
+
+print("Final Columns:", df.columns.tolist())
+```
