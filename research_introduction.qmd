@@ -1,6 +1,6 @@
 ---
 title: "Business Analytics, Data Science, and Machine Learning Trends"
-author: " Group 12 "
+author: "Group 12"
 date: 2025-09-27
 toc: true
 bibliography: references.bib
@@ -8,10 +8,29 @@ csl: csl/econometrica.csl
 format:
   html: default
 ---
-@yuanuse
-@badhon2024enhancing
-@timpone2025ai
-@li2024preparing
-@modak2024review
 
-## References
+## Background
+
+Business analytics, data science, and machine learning have become central to modern organizations, shaping hiring practices and skill requirements. Recent studies highlight the growing demand for professionals who can bridge technical and business expertise.
+
+## Literature Review
+
+Yuan (2023) emphasizes the increasing role of business analytics in data-driven decision-making [@yuanuse].  
+Badhon (2024) highlights the need to enhance machine learning pipelines to improve scalability and efficiency [@badhon2024enhancing].  
+Timpone (2025) reviews the application of AI in employment and underscores the importance of continuous skill development [@timpone2025ai].  
+Li (2024) discusses strategies for preparing students for data science careers, stressing both technical and soft skills [@li2024preparing].  
+Modak (2024) provides a comprehensive review of machine learning methods in real-world industries [@modak2024review].
+
+Together, these studies suggest that technical proficiency in programming, machine learning, and data management must be paired with problem-solving, communication, and leadership skills.
+
+## Research Questions
+- What are the most in-demand skills for data science, business analytics, and ML roles?  
+- Have job descriptions evolved in 2024 to require AI/ML expertise?  
+- What industries are hiring the most data scientists and why?  
+- What is the career outlook for business analytics professionals?   
+
+## Transition to Data
+
+To address these questions, our team analyzes a real-world dataset of job postings (Lightcast, 2024). This dataset allows us to examine the skills most frequently requested by employers, identify industry-specific hiring patterns, and connect these findings to our team’s own skill gap analysis.
+
+

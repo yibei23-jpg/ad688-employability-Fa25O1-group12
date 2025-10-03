@@ -16,18 +16,22 @@ format:
     number-sections: true
     df-print: paged
 ---
-
-
 ```{python}
 import pandas as pd
 import missingno as msno
 import matplotlib.pyplot as plt
 import numpy as np
-import missingno as msno
-import matplotlib.pyplot as plt
-df = pd.read_csv("data/lightcast_job_postings.csv")
-print(df.columns.tolist())
+import os
+from IPython.display import display
+import seaborn as sns
+sns.set_theme(style="whitegrid")
 
+os.makedirs("figures", exist_ok=True)
+
+df = pd.read_csv("data/lightcast_job_postings.csv")
+print("Columns in dataset:", df.columns.tolist())
+
+# drop irrelevant columns
 columns_to_drop = [
     "ID", "URL", "ACTIVE_URLS", "DUPLICATES", "LAST_UPDATED_TIMESTAMP",
     "NAICS2", "NAICS3", "NAICS4", "NAICS5", "NAICS6",
@@ -35,14 +39,20 @@ columns_to_drop = [
 ]
 df.drop(columns=columns_to_drop, inplace=True, errors="ignore")
 
+# Missing values heatmap
 plt.figure(figsize=(10,6))
 msno.heatmap(df)
 plt.title("Missing Values Heatmap")
 plt.tight_layout()
-thresh = len(df) * 0.5
-df = df.loc[:, df.notna().sum() >= thresh]
-df.shape
+plt.savefig("figures/missing_values_heatmap.png", dpi=300, bbox_inches="tight")
+display(plt.gcf())
+plt.close()
 
+salary_related = ["SALARY", "Salary", "Average_Salary", "AVERAGE_SALARY", "SALARY_FROM", "SALARY_TO"]
+thresh = len(df) * 0.5
+df = df.loc[:, (df.notna().sum() >= thresh) | (df.columns.isin(salary_related))]
+
+# numeric vs categorical cleaning
 num_cols = df.select_dtypes(include=[np.number]).columns.tolist()
 cat_cols = [c for c in df.columns if c not in num_cols]
 for c in num_cols:
@@ -50,7 +60,14 @@ for c in num_cols:
 df[num_cols] = df[num_cols].fillna(df[num_cols].median())
 for c in cat_cols:
     df[c] = df[c].fillna("Unknown")
-salary_candidates = ["SALARY", "Salary", "Average_Salary", "AVERAGE_SALARY"]
+
+if "SALARY_FROM" in df.columns and "SALARY_TO" in df.columns:
+    df["AVG_SALARY"] = (
+        pd.to_numeric(df["SALARY_FROM"], errors="coerce") +
+        pd.to_numeric(df["SALARY_TO"], errors="coerce")
+    ) / 2
+
+salary_candidates = ["AVG_SALARY", "SALARY", "Salary", "Average_Salary", "AVERAGE_SALARY"]
 salary_col = next((c for c in salary_candidates if c in df.columns), None)
 
 if salary_col:
@@ -59,6 +76,9 @@ if salary_col:
     iqr = q3 - q1
     lo, hi = q1 - 1.5*iqr, q3 + 1.5*iqr
     df[salary_col] = df[salary_col].clip(lower=lo, upper=hi)
+
+print("Detected salary_col:", salary_col)
+
 dup_keys = [c for c in ["TITLE", "COMPANY", "LOCATION", "POSTED"] if c in df.columns]
 if dup_keys:
     before = len(df)
@@ -67,31 +87,5 @@ if dup_keys:
     print(f"Removed duplicates: {before - after}")
 else:
     df = df.drop_duplicates()
-if "Industry" in df.columns:
-    plt.figure(figsize=(10,5))
-    df["Industry"].value_counts().head(15).plot(kind="bar")
-    plt.title("Job Postings by Industry (Top 15)")
-    plt.xlabel("Industry")
-    plt.ylabel("Count")
-    plt.tight_layout()
-    plt.show()
-if salary_col and "Industry" in df.columns:
-    plt.figure(figsize=(12,6))
-    top_ind = df["Industry"].value_counts().head(10).index
-    tmp = df[df["Industry"].isin(top_ind)]
-    tmp.boxplot(column=salary_col, by="Industry", rot=45)
-    plt.title(f"Salary Distribution by Industry ({salary_col})")
-    plt.suptitle("")
-    plt.xlabel("Industry")
-    plt.ylabel("Salary")
-    plt.tight_layout()
-    plt.show()
-remote_col = next((c for c in ["REMOTE_TYPE_NAME","REMOTE_TYPE","Remote_Type","REMOTE_GROUP"] if c in df.columns), None)
-if remote_col:
-    plt.figure(figsize=(6,6))
-    df[remote_col].fillna("Unknown").value_counts().plot(kind="pie", autopct="%1.1f%%")
-    plt.title("Remote vs. On-Site Jobs")
-    plt.ylabel("")
-    plt.tight_layout()
-    plt.show()
+
 ```

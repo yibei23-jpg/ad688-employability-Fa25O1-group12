@@ -1,5 +1,8 @@
 ---
-title: "About"
+title: "About Us"
+format: html
 ---
 
-About this site
+## Yibei Yu
+I am a graduate student in Applied Data Analytics at Boston University. My academic and professional interests include financial analytics, machine learning, and real estate modeling. I am particularly interested in careers in data analytics and fixed income research, where I can apply quantitative skills to support investment decisions. My goal is to begin my career as a financial/data analyst in the Boston area and eventually transition into asset management with a focus on fixed income research.
+---

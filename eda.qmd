@@ -1,17 +1,18 @@
 ```{python}
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import os
 from IPython.display import display
 
-os.makedirs("figures", exist_ok=True)
 
-df = pd.read_csv("data/lightcast_job_postings.csv")
+sns.set_theme(style="whitegrid", palette="muted")
+df = pd.read_csv("data/lightcast_job_postings.csv", low_memory=False)
 ```
 
 ```{python}
-# --- Salary setup ---
+# Salary setup
 if "SALARY_FROM" in df.columns and "SALARY_TO" in df.columns:
     df["AVG_SALARY"] = (
         pd.to_numeric(df["SALARY_FROM"], errors="coerce") +
@@ -21,7 +22,7 @@ if "SALARY_FROM" in df.columns and "SALARY_TO" in df.columns:
 salary_candidates = ["AVG_SALARY", "SALARY", "Average_Salary", "AVERAGE_SALARY"]
 salary_col = next((c for c in salary_candidates if c in df.columns), None)
 
-# --- Industry setup ---
+# Industry setup
 industry_candidates = ["Industry", "NAICS_2022_4_NAME", "LIGHTCAST_SECTORS_NAME"]
 industry_col = next((c for c in industry_candidates if c in df.columns), None)
 
@@ -31,7 +32,7 @@ print("Detected industry_col:", industry_col)
 ```
 
 ```{python}
-# --- Job postings by Industry ---
+# Job postings by Industry
 if industry_col:
     plt.figure(figsize=(10,5))
     df[industry_col].value_counts().head(15).plot(kind="bar")
@@ -42,8 +43,12 @@ if industry_col:
     plt.savefig("figures/job_postings_by_industry.png", dpi=300, bbox_inches="tight")
     display(plt.gcf())
     plt.close()
+```
+**Analysis**
+Computer Systems Design and Related Services accounts for the largest number of job postings, followed by Management, Scientific, and Technical Consulting Services. This indicates that the technology and consulting industries are currently the primary sectors for hiring. Job opportunities are primarily concentrated in areas related to digital transformation and information technology.
 
-# --- Salary distribution by Industry ---
+```{python}
+# Salary distribution by Industry
 if salary_col and industry_col:
     df[salary_col] = pd.to_numeric(df[salary_col], errors="coerce")
     tmp = df[[industry_col, salary_col]].dropna()
@@ -64,8 +69,12 @@ if salary_col and industry_col:
         plt.savefig("figures/salary_distribution_by_industry.png", dpi=300, bbox_inches="tight")
         display(plt.gcf())
         plt.close()
+```
+**Analysis**
+Salary distribution shows that finance, healthcare, and consulting industries have relatively high salaries, while traditional industries like education and accounting have relatively concentrated salaries with a lower range. However, there is a large dispersion in salaries in financial services, indicating that there are many high-paying positions but overall competition is fierce.
 
-# --- Remote vs On-site ---
+```{python}
+# Remote vs On-site
 remote_col = next((c for c in ["REMOTE_TYPE_NAME","REMOTE_TYPE","Remote_Type","REMOTE_GROUP"] if c in df.columns), None)
 if remote_col:
     plt.figure(figsize=(6,6))
@@ -79,3 +88,14 @@ if remote_col:
 
 print("Final Columns:", df.columns.tolist())
 ```
+**Analysis**
+Remote work accounts for approximately 17%, while traditional on-site work still accounts for over 70%. This suggests that while remote positions exist, most companies still maintain an offline work model. Hybrid remote work accounts for a small percentage and is not currently supported by companies, but it may become a trend in the future.
+
+**Summary**
+This EDA reveals the following:
+
+- Hiring is concentrated in the IT and consulting industries, demonstrating a clear demand for digital transformation.
+
+- Salaries in finance and healthcare are high and fluctuate widely, indicating fierce competition for certain positions within these sectors.
+
+- Remote positions remain a minority, but their growth potential warrants attention.
