@@ -215,3 +215,10 @@ data/lightcast_job_postings.csv
 
 *.csv
 
+*.deb
+*.zip
+*.tar.gz
+*.7z
+*.exe
+*.msi
+
