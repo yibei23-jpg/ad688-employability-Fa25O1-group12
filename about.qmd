@@ -5,4 +5,7 @@ format: html
 
 ## Yibei Yu
 I am a graduate student in Applied Data Analytics at Boston University. My academic and professional interests include financial analytics, machine learning, and real estate modeling. I am particularly interested in careers in data analytics and fixed income research, where I can apply quantitative skills to support investment decisions. My goal is to begin my career as a financial/data analyst in the Boston area and eventually transition into asset management with a focus on fixed income research.
+
+## Jonathan Leon
+I am a graduate student in Insurance Management at Boston University with a career focused entirely on the corporate property segment of the insurance industry. I’m pursuing this degree to broaden my skill set, particularly in analytics, and to develop the capabilities needed to contribute to the digital transformation initiatives shaping the future of the industry.
 ---

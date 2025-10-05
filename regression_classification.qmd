@@ -1,0 +1,276 @@
+---
+title: "Regression, Classification, and Topic Insights"
+author:
+  - name: Yibei Yu, Fuhan Zhang, Jonathan Leon
+    affiliations:
+      - id: bu
+        name: Boston University
+        city: Boston
+        state: MA
+bibliography: references.bib
+csl: csl/econometrica.csl
+format: 
+  html:
+    toc: true
+    number-sections: true
+    df-print: paged
+---
+```{python}
+import pandas as pd
+import missingno as msno
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+from IPython.display import display
+import seaborn as sns
+sns.set_theme(style="whitegrid")
+
+os.makedirs("figures", exist_ok=True)
+
+csv_path = "data/lightcast_job_postings.csv"
+if not os.path.exists(csv_path):
+  print(f"Data file not found: {csv_path}")
+  print("Place the dataset in the `data/` folder or update the path. Skipping data load.")
+  df = None
+else:
+  df = pd.read_csv(csv_path)
+  print("Columns in dataset:", df.columns.tolist())
+# close previous python block and start a new one for analysis
+
+```
+
+```{python}
+# --- classify ML/Data-Science skills and cluster by salary ---
+import re
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+def safe_tokens(val):
+  if pd.isna(val):
+    return []
+  s = str(val)
+  # handle Python lists
+  try:
+    import ast
+    parsed = ast.literal_eval(s)
+    if isinstance(parsed, (list, tuple, set)):
+      return [str(x).strip() for x in parsed if x not in (None, '')]
+  except Exception:
+    pass
+  # split on common separators
+  parts = re.split(r"\||;|\\n|\\r|\\t|,", s)
+  return [p.strip().strip('\"\'') for p in parts if p.strip()]
+
+# keywords to mark ML/DS-related skills
+ml_keywords = [
+  'machine learning','data science','deep learning','neural','tensorflow','pytorch',
+  'scikit','sklearn','xgboost','lightgbm','pandas','numpy','nlp','natural language',
+  'computer vision','keras','statistics','statistical','rnn','cnn'
+]
+
+def count_ml_tokens(tokens):
+  cnt = 0
+  for t in tokens:
+    low = t.lower()
+    for k in ml_keywords:
+      if k in low:
+        cnt += 1
+        break
+  return cnt
+
+# combine several skill/name columns to form a token set per posting
+skill_cols = ['SKILLS_NAME','SPECIALIZED_SKILLS_NAME','COMMON_SKILLS_NAME','SOFTWARE_SKILLS_NAME']
+for c in skill_cols:
+  if c not in df.columns:
+    df[c] = None
+
+def build_tokens_row(row):
+  toks = []
+  for c in skill_cols:
+    toks.extend(safe_tokens(row.get(c, '')))
+  return toks
+
+df['all_skill_tokens'] = df.apply(build_tokens_row, axis=1)
+df['ml_skill_count'] = df['all_skill_tokens'].apply(count_ml_tokens)
+df['n_skills'] = df['all_skill_tokens'].apply(len)
+
+# build a salary numeric column: prefer SALARY (if present) else average of SALARY_FROM/SALARY_TO
+if 'SALARY' in df.columns:
+  df['salary_num'] = pd.to_numeric(df['SALARY'], errors='coerce')
+else:
+  sf = pd.to_numeric(df.get('SALARY_FROM', pd.Series([None]*len(df))), errors='coerce')
+  st = pd.to_numeric(df.get('SALARY_TO', pd.Series([None]*len(df))), errors='coerce')
+  df['salary_num'] = sf
+  # if both available, take mean
+  df.loc[~sf.isna() & ~st.isna(), 'salary_num'] = (sf + st)/2
+
+# keep rows with a positive salary
+df_model = df[df['salary_num'].notna() & (df['salary_num']>0)].copy()
+if df_model.shape[0] == 0:
+  print('No salary data available for clustering.')
+else:
+  X = df_model[['salary_num','ml_skill_count','n_skills']].fillna(0).to_numpy()
+  scaler = StandardScaler()
+  Xs = scaler.fit_transform(X)
+
+  # cluster into 2 groups (we'll map one group to ML jobs and the other to non-ML)
+  kmeans = KMeans(n_clusters=2, random_state=42, n_init=10)
+  labels = kmeans.fit_predict(Xs)
+  df_model['cluster'] = labels
+
+  # mark ML job by whether it has any ML tokens
+  df_model['is_ml_job'] = df_model['ml_skill_count']>0
+
+  # determine which cluster has the higher proportion of ML jobs and label clusters accordingly
+  try:
+    cluster_ml_pct = df_model.groupby('cluster')['is_ml_job'].mean()
+    if not cluster_ml_pct.empty:
+      ml_cluster = int(cluster_ml_pct.idxmax())
+    else:
+      ml_cluster = 1
+  except Exception:
+    ml_cluster = 1
+  df_model['cluster_is_ml'] = df_model['cluster'].apply(lambda c: c == ml_cluster)
+  df_model['cluster_label'] = df_model['cluster_is_ml'].map({True: 'ML cluster', False: 'Non-ML cluster'})
+
+  # summarize clusters
+  summary = df_model.groupby('cluster').agg(
+    postings=('cluster','size'),
+    avg_salary=('salary_num','mean'),
+    median_salary=('salary_num','median'),
+    avg_ml_skill_count=('ml_skill_count','mean'),
+    pct_ml_jobs=('is_ml_job', lambda x: 100*x.mean())
+  ).sort_index()
+
+  print('\nCluster summary (salary and ML presence):')
+  print(summary)
+
+  # show cluster centers in original feature space
+  centers = scaler.inverse_transform(kmeans.cluster_centers_)
+  print('\nCluster centers (salary_num, ml_skill_count, n_skills):')
+  for i,c in enumerate(centers):
+    print(f'Cluster {i}:', c)
+
+  # show top 10 sample postings per cluster that are ML jobs
+  for i in sorted(df_model['cluster'].unique()):
+    print('\n' + '='*40)
+    print(f'Cluster {i} — top ML postings (sample)')
+    sample = df_model[(df_model['cluster']==i) & (df_model['is_ml_job'])].head(10)
+    if sample.empty:
+      print('  (no ML postings in this cluster)')
+    else:
+      for idx,row in sample.iterrows():
+        title = row.get('TITLE') or row.get('TITLE_NAME') or ''
+        print(f"  id={row.get('ID')} | salary={row.get('salary_num'):.0f} | ml_count={row.get('ml_skill_count')} | title={title}")
+
+```
+
+```{python}
+# --- Static Matplotlib KMeans scatter: salary (y, log) vs cluster (x jitter), color by NAICS group, outline for ML jobs ---
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.ticker import FuncFormatter
+import math
+
+plot_df = df_model[df_model['salary_num'].notna() & (df_model['salary_num']>0)].copy()
+if plot_df.empty:
+  print('No salary data available for static plotting.')
+else:
+  if 'cluster' not in plot_df.columns:
+    from sklearn.cluster import KMeans
+    from sklearn.preprocessing import StandardScaler
+    X = plot_df[['salary_num','ml_skill_count','n_skills']].fillna(0).to_numpy()
+    sc = StandardScaler(); Xs = sc.fit_transform(X)
+    kmeans_tmp = KMeans(n_clusters=2, random_state=42, n_init=10).fit(Xs)
+    plot_df['cluster'] = kmeans_tmp.labels_
+    # map which temporary cluster is ML-heavy
+    try:
+      tmp_ml_pct = plot_df.groupby('cluster')['ml_skill_count'].apply(lambda s: (s>0).mean())
+      tmp_ml_cluster = int(tmp_ml_pct.idxmax())
+    except Exception:
+      tmp_ml_cluster = 1
+    plot_df['cluster_is_ml'] = plot_df['cluster'].apply(lambda c: c == tmp_ml_cluster)
+    plot_df['cluster'] = plot_df['cluster_is_ml'].astype(int)
+
+  # Robust NAICS/industry column detection (case-insensitive). Prefer name/title/description columns.
+  import re as _re
+  cols = list(plot_df.columns)
+  naics_like = [c for c in cols if _re.search(r'naics|industry', c, _re.I)]
+  naics_name_cols = [c for c in naics_like if _re.search(r'name|title|desc|sector', c, _re.I)]
+  naics_code_cols = [c for c in naics_like if _re.search(r'code|id|num|^naics$', c, _re.I)]
+
+  if naics_name_cols:
+    naics_col = naics_name_cols[0]
+    plot_df['naics_group'] = plot_df[naics_col].fillna('Unknown').astype(str)
+  elif naics_like and naics_code_cols:
+    # prefer code column if only codes are present
+    code_col = naics_code_cols[0]
+    plot_df['naics_group'] = plot_df[code_col].fillna('Unknown').astype(str).apply(lambda v: f"NAICS {v}" if str(v).strip()!='' else 'Unknown')
+  elif naics_like:
+    # fallback: use first matching column
+    naics_col = naics_like[0]
+    plot_df['naics_group'] = plot_df[naics_col].fillna('Unknown').astype(str)
+  else:
+    plot_df['naics_group'] = 'Unknown'
+
+  top_naics = plot_df['naics_group'].value_counts().nlargest(10).index.tolist()
+  plot_df['naics_top'] = plot_df['naics_group'].where(plot_df['naics_group'].isin(top_naics), 'Other')
+
+  plot_df['ml_flag'] = plot_df['is_ml_job']
+  rng = np.random.default_rng(6)
+  plot_df['x_jitter'] = plot_df['cluster'].astype(int) + rng.normal(0, 0.12, size=len(plot_df))
+
+  # sample for plotting to keep figure readable
+  sample_df = plot_df.sample(n=min(20000, len(plot_df)), random_state=7)
+
+  plt.figure(figsize=(12,8))
+  groups = sample_df.groupby('naics_top')
+  cmap = plt.get_cmap('tab10')
+  colors = {g: cmap(i % 10) for i,g in enumerate(groups.groups.keys())}
+
+  for g, sub in groups:
+    plt.scatter(sub['x_jitter'], sub['salary_num'], s=18, alpha=0.65, label=g, color=colors[g])
+
+  # outline ML jobs (do not add a legend entry for the outline)
+  ml_sub = sample_df[sample_df['ml_flag']]
+  plt.scatter(ml_sub['x_jitter'], ml_sub['salary_num'], facecolors='none', edgecolors='k', s=45, linewidths=0.6)
+
+  # Use linear scale so we can show dollar ticks every $25,000 as requested
+  plt.yscale('linear')
+  plt.xlabel('KMeans cluster (jittered)')
+  plt.ylabel('Salary (USD, log scale)')
+  plt.title('KMeans clusters: Salary by NAICS group; ML jobs outlined')
+  # Label x-axis clusters explicitly: 1 = ML jobs, 0 = Non-ML jobs
+  cluster_order = sorted(plot_df['cluster'].unique())
+  # map 1->ML cluster label
+  xtick_labels = []
+  for c in cluster_order:
+    if 'cluster_label' in plot_df.columns:
+      # use cluster_label if present
+      lab = 'Jobs Requiring ML/DS Skills' if (plot_df['cluster_label'].iloc[0] == 'ML cluster' and c==1) or (plot_df['cluster_label'].unique().size==2 and plot_df.loc[plot_df['cluster']==c,'cluster_label'].iloc[0]=='ML cluster') else 'Jobs Not Requiring ML/DS Skills'
+    else:
+      lab = 'Jobs Requiring ML/DS Skills' if c==1 else 'Jobs Not Requiring ML/DS Skills'
+    xtick_labels.append(lab)
+
+  plt.xticks(cluster_order, xtick_labels, rotation=15)
+
+  # set major y-ticks every $25,000 from min to max salary (rounded)
+  ymin = math.floor(sample_df['salary_num'].min() / 25000) * 25000
+  ymax = math.ceil(sample_df['salary_num'].max() / 25000) * 25000
+  y_ticks = list(range(int(ymin), int(ymax)+1, 25000))
+  plt.gca().set_yticks(y_ticks)
+
+  def usd(x, pos):
+    return f"${x:,.0f}"
+
+  plt.gca().yaxis.set_major_formatter(FuncFormatter(usd))
+  # keep legend for NAICS groups only, not the ML outline
+  plt.legend(title='NAICS (top)', bbox_to_anchor=(1.02,1), loc='upper left')
+  plt.tight_layout()
+  out_png = 'figures/kmeans_salary_naics_scatter.png'
+  plt.savefig(out_png, dpi=220)
+  print('Saved static KMeans NAICS scatter to', out_png)
+
+```
+
+```

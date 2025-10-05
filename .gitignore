@@ -223,3 +223,5 @@ data/lightcast_job_postings.csv
 *.msi
 
 *.deb
+lightcast_job_postings.csv
+lightcast_job_postings.csv
