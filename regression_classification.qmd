@@ -40,6 +40,17 @@ else:
 ```
 
 ```{python}
+# If the dataset wasn't loaded above, stop now with a helpful message rather
+# than letting later cells fail with 'NoneType' errors.
+if 'df' not in globals() or df is None:
+  raise RuntimeError(
+    "Dataset not found at data/lightcast_job_postings.csv. "
+    "Place the dataset in the `data/` folder or update the path before rendering."
+  )
+
+```
+
+```{python}
 # --- classify ML/Data-Science skills and cluster by salary ---
 import re
 from sklearn.cluster import KMeans
@@ -273,4 +284,112 @@ else:
 
 ```
 
-```
+```{python}
+# --- Multiple linear regression: log(salary) on ML-job indicator, industry fixed effects, and controls ---
+import statsmodels.formula.api as smf
+import statsmodels.api as sm
+
+# prefer df_model if available (created during clustering); otherwise fall back to plot_df
+source_df = None
+if 'df_model' in globals():
+  source_df = df_model.copy()
+elif 'plot_df' in globals():
+  source_df = plot_df.copy()
+else:
+  source_df = df.copy()
+
+# ensure salary numeric present
+if source_df is None or source_df.empty or 'salary_num' not in source_df.columns:
+  print('No usable salary data available for regression.')
+else:
+  df_reg = source_df[source_df['salary_num'].notna() & (source_df['salary_num']>0)].copy()
+  if df_reg.empty:
+    print('No salary rows after filtering for regression.')
+  else:
+    # detect NAICS/industry column robustly (same approach as plotting)
+    import re as _re
+    cols = list(df_reg.columns)
+    naics_like = [c for c in cols if _re.search(r'naics|industry', c, _re.I)]
+    naics_name_cols = [c for c in naics_like if _re.search(r'name|title|desc|sector', c, _re.I)]
+    naics_code_cols = [c for c in naics_like if _re.search(r'code|id|num|^naics$', c, _re.I)]
+
+    if naics_name_cols:
+      naics_col = naics_name_cols[0]
+      df_reg['naics_group'] = df_reg[naics_col].fillna('Unknown').astype(str)
+    elif naics_like and naics_code_cols:
+      code_col = naics_code_cols[0]
+      df_reg['naics_group'] = df_reg[code_col].fillna('Unknown').astype(str).apply(lambda v: f"NAICS {v}" if str(v).strip()!='' else 'Unknown')
+    elif naics_like:
+      naics_col = naics_like[0]
+      df_reg['naics_group'] = df_reg[naics_col].fillna('Unknown').astype(str)
+    else:
+      df_reg['naics_group'] = 'Unknown'
+
+    # build top-industry grouping similar to plotting
+    top_naics = df_reg['naics_group'].value_counts().nlargest(10).index.tolist()
+    df_reg['naics_top'] = df_reg['naics_group'].where(df_reg['naics_group'].isin(top_naics), 'Other')
+
+    # create binary indicator: whether the posting requires ML/DS skills
+    # keep `is_ml_job` for backwards compatibility with the formula
+    df_reg['requires_ml_skill'] = df_reg.get('ml_skill_count', 0) > 0
+    df_reg['is_ml_job'] = df_reg['requires_ml_skill']
+
+    df_reg['log_salary'] = np.log(df_reg['salary_num'].astype(float))
+
+    # add simple controls if missing
+    if 'n_skills' not in df_reg.columns:
+      df_reg['n_skills'] = df_reg.get('all_skill_tokens', []).apply(lambda x: len(x) if isinstance(x, (list, tuple)) else 0)
+    if 'ml_skill_count' not in df_reg.columns:
+      df_reg['ml_skill_count'] = 0
+
+    # Fit OLS with industry fixed effects and interaction: log_salary ~ is_ml_job * C(naics_top) + n_skills + ml_skill_count
+    formula = 'log_salary ~ is_ml_job * C(naics_top) + n_skills + ml_skill_count'
+    try:
+      model = smf.ols(formula=formula, data=df_reg).fit(cov_type='HC3')
+      print(model.summary())
+      # save summary to file
+      with open('figures/ols_summary.txt', 'w') as f:
+        f.write(model.summary().as_text())
+    except Exception as e:
+      print('Regression failed:', e)
+      model = None
+
+    # If model fit, compute predicted salaries for ML vs non-ML by industry
+    if model is not None:
+      preds = []
+      # use mean of numeric controls for prediction
+      mean_n_skills = df_reg['n_skills'].mean() if 'n_skills' in df_reg.columns else 0
+      mean_ml_skill_count = df_reg['ml_skill_count'].mean() if 'ml_skill_count' in df_reg.columns else 0
+
+      for ind in df_reg['naics_top'].unique():
+        for ml_flag in [0,1]:
+          # model expects `is_ml_job` variable (we set it above), so pass that for prediction
+          row = { 'is_ml_job': ml_flag, 'n_skills': mean_n_skills, 'ml_skill_count': mean_ml_skill_count, 'naics_top': ind }
+          try:
+            pred_res = model.get_prediction(pd.DataFrame([row]))
+            pred_mean_log = pred_res.predicted_mean[0]
+            pred_mean = float(np.exp(pred_mean_log))
+          except Exception:
+            pred_mean = np.nan
+          preds.append({'naics_top': ind, 'is_ml_job': bool(ml_flag), 'predicted_salary': pred_mean})
+
+      pred_df = pd.DataFrame(preds).dropna()
+      # sort industries by total postings to keep consistent order
+      order = df_reg['naics_top'].value_counts().loc[lambda x: x.index.isin(pred_df['naics_top'])].index.tolist()
+      pred_df['naics_top'] = pd.Categorical(pred_df['naics_top'], categories=order, ordered=True)
+
+  # Map boolean to readable labels and plot side-by-side bars for predicted salary by industry
+  pred_df['requires_label'] = pred_df['is_ml_job'].map({True: 'Jobs requiring ML/DS skills', False: 'Jobs not requiring ML/DS skills'})
+  plt.figure(figsize=(14,7))
+  sns.barplot(data=pred_df, x='naics_top', y='predicted_salary', hue='requires_label')
+  plt.xlabel('Industry (top)')
+  plt.ylabel('Predicted Salary (USD)')
+  plt.title('Predicted salary by industry — Jobs requiring ML/DS skills vs not (controls at mean)')
+  plt.xticks(rotation=25, ha='right')
+  plt.legend(title='Requirement')
+  plt.tight_layout()
+  out_png2 = 'figures/regression_predicted_salary_by_industry.png'
+  plt.savefig(out_png2, dpi=220)
+  print('Saved regression predicted-salary figure to', out_png2)
+
+``` 

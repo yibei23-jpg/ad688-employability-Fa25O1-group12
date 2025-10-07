@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="19eaac92" class="cell" data-execution_count="1">
+<div id="e13b760e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> missingno <span class="im">as</span> msno</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -225,139 +225,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  df <span class="op">=</span> pd.read_csv(csv_path)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Columns in dataset:"</span>, df.columns.tolist())</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># close previous python block and start a new one for analysis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Columns in dataset: ['ID', 'LAST_UPDATED_DATE', 'LAST_UPDATED_TIMESTAMP', 'DUPLICATES', 'POSTED', 'EXPIRED', 'DURATION', 'SOURCE_TYPES', 'SOURCES', 'URL', 'ACTIVE_URLS', 'ACTIVE_SOURCES_INFO', 'TITLE_RAW', 'BODY', 'MODELED_EXPIRED', 'MODELED_DURATION', 'COMPANY', 'COMPANY_NAME', 'COMPANY_RAW', 'COMPANY_IS_STAFFING', 'EDUCATION_LEVELS', 'EDUCATION_LEVELS_NAME', 'MIN_EDULEVELS', 'MIN_EDULEVELS_NAME', 'MAX_EDULEVELS', 'MAX_EDULEVELS_NAME', 'EMPLOYMENT_TYPE', 'EMPLOYMENT_TYPE_NAME', 'MIN_YEARS_EXPERIENCE', 'MAX_YEARS_EXPERIENCE', 'IS_INTERNSHIP', 'SALARY', 'REMOTE_TYPE', 'REMOTE_TYPE_NAME', 'ORIGINAL_PAY_PERIOD', 'SALARY_TO', 'SALARY_FROM', 'LOCATION', 'CITY', 'CITY_NAME', 'COUNTY', 'COUNTY_NAME', 'MSA', 'MSA_NAME', 'STATE', 'STATE_NAME', 'COUNTY_OUTGOING', 'COUNTY_NAME_OUTGOING', 'COUNTY_INCOMING', 'COUNTY_NAME_INCOMING', 'MSA_OUTGOING', 'MSA_NAME_OUTGOING', 'MSA_INCOMING', 'MSA_NAME_INCOMING', 'NAICS2', 'NAICS2_NAME', 'NAICS3', 'NAICS3_NAME', 'NAICS4', 'NAICS4_NAME', 'NAICS5', 'NAICS5_NAME', 'NAICS6', 'NAICS6_NAME', 'TITLE', 'TITLE_NAME', 'TITLE_CLEAN', 'SKILLS', 'SKILLS_NAME', 'SPECIALIZED_SKILLS', 'SPECIALIZED_SKILLS_NAME', 'CERTIFICATIONS', 'CERTIFICATIONS_NAME', 'COMMON_SKILLS', 'COMMON_SKILLS_NAME', 'SOFTWARE_SKILLS', 'SOFTWARE_SKILLS_NAME', 'ONET', 'ONET_NAME', 'ONET_2019', 'ONET_2019_NAME', 'CIP6', 'CIP6_NAME', 'CIP4', 'CIP4_NAME', 'CIP2', 'CIP2_NAME', 'SOC_2021_2', 'SOC_2021_2_NAME', 'SOC_2021_3', 'SOC_2021_3_NAME', 'SOC_2021_4', 'SOC_2021_4_NAME', 'SOC_2021_5', 'SOC_2021_5_NAME', 'LOT_CAREER_AREA', 'LOT_CAREER_AREA_NAME', 'LOT_OCCUPATION', 'LOT_OCCUPATION_NAME', 'LOT_SPECIALIZED_OCCUPATION', 'LOT_SPECIALIZED_OCCUPATION_NAME', 'LOT_OCCUPATION_GROUP', 'LOT_OCCUPATION_GROUP_NAME', 'LOT_V6_SPECIALIZED_OCCUPATION', 'LOT_V6_SPECIALIZED_OCCUPATION_NAME', 'LOT_V6_OCCUPATION', 'LOT_V6_OCCUPATION_NAME', 'LOT_V6_OCCUPATION_GROUP', 'LOT_V6_OCCUPATION_GROUP_NAME', 'LOT_V6_CAREER_AREA', 'LOT_V6_CAREER_AREA_NAME', 'SOC_2', 'SOC_2_NAME', 'SOC_3', 'SOC_3_NAME', 'SOC_4', 'SOC_4_NAME', 'SOC_5', 'SOC_5_NAME', 'LIGHTCAST_SECTORS', 'LIGHTCAST_SECTORS_NAME', 'NAICS_2022_2', 'NAICS_2022_2_NAME', 'NAICS_2022_3', 'NAICS_2022_3_NAME', 'NAICS_2022_4', 'NAICS_2022_4_NAME', 'NAICS_2022_5', 'NAICS_2022_5_NAME', 'NAICS_2022_6', 'NAICS_2022_6_NAME']</code></pre>
+</div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/mb/jgg053s522lbkfwkckr1sylh0000gn/T/ipykernel_86632/951617275.py:18: DtypeWarning:
+<pre><code>/var/folders/mb/jgg053s522lbkfwkckr1sylh0000gn/T/ipykernel_3269/951617275.py:18: DtypeWarning:
 
 Columns (19,30) have mixed types. Specify dtype option on import or set low_memory=False.
 </code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Columns in dataset: ['ID', 'LAST_UPDATED_DATE', 'LAST_UPDATED_TIMESTAMP', 'DUPLICATES', 'POSTED', 'EXPIRED', 'DURATION', 'SOURCE_TYPES', 'SOURCES', 'URL', 'ACTIVE_URLS', 'ACTIVE_SOURCES_INFO', 'TITLE_RAW', 'BODY', 'MODELED_EXPIRED', 'MODELED_DURATION', 'COMPANY', 'COMPANY_NAME', 'COMPANY_RAW', 'COMPANY_IS_STAFFING', 'EDUCATION_LEVELS', 'EDUCATION_LEVELS_NAME', 'MIN_EDULEVELS', 'MIN_EDULEVELS_NAME', 'MAX_EDULEVELS', 'MAX_EDULEVELS_NAME', 'EMPLOYMENT_TYPE', 'EMPLOYMENT_TYPE_NAME', 'MIN_YEARS_EXPERIENCE', 'MAX_YEARS_EXPERIENCE', 'IS_INTERNSHIP', 'SALARY', 'REMOTE_TYPE', 'REMOTE_TYPE_NAME', 'ORIGINAL_PAY_PERIOD', 'SALARY_TO', 'SALARY_FROM', 'LOCATION', 'CITY', 'CITY_NAME', 'COUNTY', 'COUNTY_NAME', 'MSA', 'MSA_NAME', 'STATE', 'STATE_NAME', 'COUNTY_OUTGOING', 'COUNTY_NAME_OUTGOING', 'COUNTY_INCOMING', 'COUNTY_NAME_INCOMING', 'MSA_OUTGOING', 'MSA_NAME_OUTGOING', 'MSA_INCOMING', 'MSA_NAME_INCOMING', 'NAICS2', 'NAICS2_NAME', 'NAICS3', 'NAICS3_NAME', 'NAICS4', 'NAICS4_NAME', 'NAICS5', 'NAICS5_NAME', 'NAICS6', 'NAICS6_NAME', 'TITLE', 'TITLE_NAME', 'TITLE_CLEAN', 'SKILLS', 'SKILLS_NAME', 'SPECIALIZED_SKILLS', 'SPECIALIZED_SKILLS_NAME', 'CERTIFICATIONS', 'CERTIFICATIONS_NAME', 'COMMON_SKILLS', 'COMMON_SKILLS_NAME', 'SOFTWARE_SKILLS', 'SOFTWARE_SKILLS_NAME', 'ONET', 'ONET_NAME', 'ONET_2019', 'ONET_2019_NAME', 'CIP6', 'CIP6_NAME', 'CIP4', 'CIP4_NAME', 'CIP2', 'CIP2_NAME', 'SOC_2021_2', 'SOC_2021_2_NAME', 'SOC_2021_3', 'SOC_2021_3_NAME', 'SOC_2021_4', 'SOC_2021_4_NAME', 'SOC_2021_5', 'SOC_2021_5_NAME', 'LOT_CAREER_AREA', 'LOT_CAREER_AREA_NAME', 'LOT_OCCUPATION', 'LOT_OCCUPATION_NAME', 'LOT_SPECIALIZED_OCCUPATION', 'LOT_SPECIALIZED_OCCUPATION_NAME', 'LOT_OCCUPATION_GROUP', 'LOT_OCCUPATION_GROUP_NAME', 'LOT_V6_SPECIALIZED_OCCUPATION', 'LOT_V6_SPECIALIZED_OCCUPATION_NAME', 'LOT_V6_OCCUPATION', 'LOT_V6_OCCUPATION_NAME', 'LOT_V6_OCCUPATION_GROUP', 'LOT_V6_OCCUPATION_GROUP_NAME', 'LOT_V6_CAREER_AREA', 'LOT_V6_CAREER_AREA_NAME', 'SOC_2', 'SOC_2_NAME', 'SOC_3', 'SOC_3_NAME', 'SOC_4', 'SOC_4_NAME', 'SOC_5', 'SOC_5_NAME', 'LIGHTCAST_SECTORS', 'LIGHTCAST_SECTORS_NAME', 'NAICS_2022_2', 'NAICS_2022_2_NAME', 'NAICS_2022_3', 'NAICS_2022_3_NAME', 'NAICS_2022_4', 'NAICS_2022_4_NAME', 'NAICS_2022_5', 'NAICS_2022_5_NAME', 'NAICS_2022_6', 'NAICS_2022_6_NAME']</code></pre>
 </div>
+<div id="b2e6c34f" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If the dataset wasn't loaded above, stop now with a helpful message rather</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># than letting later cells fail with 'NoneType' errors.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'df'</span> <span class="kw">not</span> <span class="kw">in</span> <span class="bu">globals</span>() <span class="kw">or</span> df <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span> <span class="pp">RuntimeError</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dataset not found at data/lightcast_job_postings.csv. "</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Place the dataset in the `data/` folder or update the path before rendering."</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="f13e04ff" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- classify ML/Data-Science skills and cluster by salary ---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> safe_tokens(val):</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> pd.isna(val):</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> []</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  s <span class="op">=</span> <span class="bu">str</span>(val)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># handle Python lists</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span>:</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> ast</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    parsed <span class="op">=</span> ast.literal_eval(s)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(parsed, (<span class="bu">list</span>, <span class="bu">tuple</span>, <span class="bu">set</span>)):</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> [<span class="bu">str</span>(x).strip() <span class="cf">for</span> x <span class="kw">in</span> parsed <span class="cf">if</span> x <span class="kw">not</span> <span class="kw">in</span> (<span class="va">None</span>, <span class="st">''</span>)]</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># split on common separators</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  parts <span class="op">=</span> re.split(<span class="vs">r"</span><span class="ch">\|</span><span class="cf">|</span><span class="vs">;</span><span class="cf">|</span><span class="ch">\\</span><span class="vs">n</span><span class="cf">|</span><span class="ch">\\</span><span class="vs">r</span><span class="cf">|</span><span class="ch">\\</span><span class="vs">t</span><span class="cf">|</span><span class="vs">,"</span>, s)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [p.strip().strip(<span class="st">'</span><span class="ch">\"\'</span><span class="st">'</span>) <span class="cf">for</span> p <span class="kw">in</span> parts <span class="cf">if</span> p.strip()]</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># keywords to mark ML/DS-related skills</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>ml_keywords <span class="op">=</span> [</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">'machine learning'</span>,<span class="st">'data science'</span>,<span class="st">'deep learning'</span>,<span class="st">'neural'</span>,<span class="st">'tensorflow'</span>,<span class="st">'pytorch'</span>,</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">'scikit'</span>,<span class="st">'sklearn'</span>,<span class="st">'xgboost'</span>,<span class="st">'lightgbm'</span>,<span class="st">'pandas'</span>,<span class="st">'numpy'</span>,<span class="st">'nlp'</span>,<span class="st">'natural language'</span>,</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">'computer vision'</span>,<span class="st">'keras'</span>,<span class="st">'statistics'</span>,<span class="st">'statistical'</span>,<span class="st">'rnn'</span>,<span class="st">'cnn'</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_ml_tokens(tokens):</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  cnt <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> t <span class="kw">in</span> tokens:</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    low <span class="op">=</span> t.lower()</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> ml_keywords:</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> k <span class="kw">in</span> low:</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        cnt <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> cnt</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># combine several skill/name columns to form a token set per posting</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>skill_cols <span class="op">=</span> [<span class="st">'SKILLS_NAME'</span>,<span class="st">'SPECIALIZED_SKILLS_NAME'</span>,<span class="st">'COMMON_SKILLS_NAME'</span>,<span class="st">'SOFTWARE_SKILLS_NAME'</span>]</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> skill_cols:</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> c <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    df[c] <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_tokens_row(row):</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  toks <span class="op">=</span> []</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> c <span class="kw">in</span> skill_cols:</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    toks.extend(safe_tokens(row.get(c, <span class="st">''</span>)))</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> toks</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'all_skill_tokens'</span>] <span class="op">=</span> df.<span class="bu">apply</span>(build_tokens_row, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ml_skill_count'</span>] <span class="op">=</span> df[<span class="st">'all_skill_tokens'</span>].<span class="bu">apply</span>(count_ml_tokens)</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'n_skills'</span>] <span class="op">=</span> df[<span class="st">'all_skill_tokens'</span>].<span class="bu">apply</span>(<span class="bu">len</span>)</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="co"># build a salary numeric column: prefer SALARY (if present) else average of SALARY_FROM/SALARY_TO</span></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'SALARY'</span> <span class="kw">in</span> df.columns:</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'salary_num'</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">'SALARY'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>  sf <span class="op">=</span> pd.to_numeric(df.get(<span class="st">'SALARY_FROM'</span>, pd.Series([<span class="va">None</span>]<span class="op">*</span><span class="bu">len</span>(df))), errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  st <span class="op">=</span> pd.to_numeric(df.get(<span class="st">'SALARY_TO'</span>, pd.Series([<span class="va">None</span>]<span class="op">*</span><span class="bu">len</span>(df))), errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'salary_num'</span>] <span class="op">=</span> sf</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  <span class="co"># if both available, take mean</span></span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  df.loc[<span class="op">~</span>sf.isna() <span class="op">&amp;</span> <span class="op">~</span>st.isna(), <span class="st">'salary_num'</span>] <span class="op">=</span> (sf <span class="op">+</span> st)<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="co"># keep rows with a positive salary</span></span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>df_model <span class="op">=</span> df[df[<span class="st">'salary_num'</span>].notna() <span class="op">&amp;</span> (df[<span class="st">'salary_num'</span>]<span class="op">&gt;</span><span class="dv">0</span>)].copy()</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> df_model.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'No salary data available for clustering.'</span>)</span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>  X <span class="op">=</span> df_model[[<span class="st">'salary_num'</span>,<span class="st">'ml_skill_count'</span>,<span class="st">'n_skills'</span>]].fillna(<span class="dv">0</span>).to_numpy()</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>  scaler <span class="op">=</span> StandardScaler()</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>  Xs <span class="op">=</span> scaler.fit_transform(X)</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cluster into 2 groups (we'll map one group to ML jobs and the other to non-ML)</span></span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>  kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>  labels <span class="op">=</span> kmeans.fit_predict(Xs)</span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'cluster'</span>] <span class="op">=</span> labels</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mark ML job by whether it has any ML tokens</span></span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'is_ml_job'</span>] <span class="op">=</span> df_model[<span class="st">'ml_skill_count'</span>]<span class="op">&gt;</span><span class="dv">0</span></span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>  <span class="co"># determine which cluster has the higher proportion of ML jobs and label clusters accordingly</span></span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span>:</span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    cluster_ml_pct <span class="op">=</span> df_model.groupby(<span class="st">'cluster'</span>)[<span class="st">'is_ml_job'</span>].mean()</span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> cluster_ml_pct.empty:</span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>      ml_cluster <span class="op">=</span> <span class="bu">int</span>(cluster_ml_pct.idxmax())</span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>      ml_cluster <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>  <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>    ml_cluster <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'cluster_is_ml'</span>] <span class="op">=</span> df_model[<span class="st">'cluster'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> c: c <span class="op">==</span> ml_cluster)</span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'cluster_label'</span>] <span class="op">=</span> df_model[<span class="st">'cluster_is_ml'</span>].<span class="bu">map</span>({<span class="va">True</span>: <span class="st">'ML cluster'</span>, <span class="va">False</span>: <span class="st">'Non-ML cluster'</span>})</span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>  <span class="co"># summarize clusters</span></span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>  summary <span class="op">=</span> df_model.groupby(<span class="st">'cluster'</span>).agg(</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    postings<span class="op">=</span>(<span class="st">'cluster'</span>,<span class="st">'size'</span>),</span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    avg_salary<span class="op">=</span>(<span class="st">'salary_num'</span>,<span class="st">'mean'</span>),</span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    median_salary<span class="op">=</span>(<span class="st">'salary_num'</span>,<span class="st">'median'</span>),</span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    avg_ml_skill_count<span class="op">=</span>(<span class="st">'ml_skill_count'</span>,<span class="st">'mean'</span>),</span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    pct_ml_jobs<span class="op">=</span>(<span class="st">'is_ml_job'</span>, <span class="kw">lambda</span> x: <span class="dv">100</span><span class="op">*</span>x.mean())</span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  ).sort_index()</span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Cluster summary (salary and ML presence):'</span>)</span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(summary)</span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># show cluster centers in original feature space</span></span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>  centers <span class="op">=</span> scaler.inverse_transform(kmeans.cluster_centers_)</span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Cluster centers (salary_num, ml_skill_count, n_skills):'</span>)</span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i,c <span class="kw">in</span> <span class="bu">enumerate</span>(centers):</span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Cluster </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:'</span>, c)</span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>  <span class="co"># show top 10 sample postings per cluster that are ML jobs</span></span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">sorted</span>(df_model[<span class="st">'cluster'</span>].unique()):</span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> <span class="st">'='</span><span class="op">*</span><span class="dv">40</span>)</span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Cluster </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> — top ML postings (sample)'</span>)</span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>    sample <span class="op">=</span> df_model[(df_model[<span class="st">'cluster'</span>]<span class="op">==</span>i) <span class="op">&amp;</span> (df_model[<span class="st">'is_ml_job'</span>])].head(<span class="dv">10</span>)</span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sample.empty:</span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">'  (no ML postings in this cluster)'</span>)</span>
-<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> idx,row <span class="kw">in</span> sample.iterrows():</span>
-<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> row.get(<span class="st">'TITLE'</span>) <span class="kw">or</span> row.get(<span class="st">'TITLE_NAME'</span>) <span class="kw">or</span> <span class="st">''</span></span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  id=</span><span class="sc">{</span>row<span class="sc">.</span>get(<span class="st">'ID'</span>)<span class="sc">}</span><span class="ss"> | salary=</span><span class="sc">{</span>row<span class="sc">.</span>get(<span class="st">'salary_num'</span>)<span class="sc">:.0f}</span><span class="ss"> | ml_count=</span><span class="sc">{</span>row<span class="sc">.</span>get(<span class="st">'ml_skill_count'</span>)<span class="sc">}</span><span class="ss"> | title=</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="255f7c64" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- classify ML/Data-Science skills and cluster by salary ---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> safe_tokens(val):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> pd.isna(val):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> []</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  s <span class="op">=</span> <span class="bu">str</span>(val)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># handle Python lists</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span>:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> ast</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    parsed <span class="op">=</span> ast.literal_eval(s)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(parsed, (<span class="bu">list</span>, <span class="bu">tuple</span>, <span class="bu">set</span>)):</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> [<span class="bu">str</span>(x).strip() <span class="cf">for</span> x <span class="kw">in</span> parsed <span class="cf">if</span> x <span class="kw">not</span> <span class="kw">in</span> (<span class="va">None</span>, <span class="st">''</span>)]</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># split on common separators</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  parts <span class="op">=</span> re.split(<span class="vs">r"</span><span class="ch">\|</span><span class="cf">|</span><span class="vs">;</span><span class="cf">|</span><span class="ch">\\</span><span class="vs">n</span><span class="cf">|</span><span class="ch">\\</span><span class="vs">r</span><span class="cf">|</span><span class="ch">\\</span><span class="vs">t</span><span class="cf">|</span><span class="vs">,"</span>, s)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [p.strip().strip(<span class="st">'</span><span class="ch">\"\'</span><span class="st">'</span>) <span class="cf">for</span> p <span class="kw">in</span> parts <span class="cf">if</span> p.strip()]</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># keywords to mark ML/DS-related skills</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ml_keywords <span class="op">=</span> [</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">'machine learning'</span>,<span class="st">'data science'</span>,<span class="st">'deep learning'</span>,<span class="st">'neural'</span>,<span class="st">'tensorflow'</span>,<span class="st">'pytorch'</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">'scikit'</span>,<span class="st">'sklearn'</span>,<span class="st">'xgboost'</span>,<span class="st">'lightgbm'</span>,<span class="st">'pandas'</span>,<span class="st">'numpy'</span>,<span class="st">'nlp'</span>,<span class="st">'natural language'</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">'computer vision'</span>,<span class="st">'keras'</span>,<span class="st">'statistics'</span>,<span class="st">'statistical'</span>,<span class="st">'rnn'</span>,<span class="st">'cnn'</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_ml_tokens(tokens):</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  cnt <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> t <span class="kw">in</span> tokens:</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    low <span class="op">=</span> t.lower()</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> ml_keywords:</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> k <span class="kw">in</span> low:</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        cnt <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> cnt</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># combine several skill/name columns to form a token set per posting</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>skill_cols <span class="op">=</span> [<span class="st">'SKILLS_NAME'</span>,<span class="st">'SPECIALIZED_SKILLS_NAME'</span>,<span class="st">'COMMON_SKILLS_NAME'</span>,<span class="st">'SOFTWARE_SKILLS_NAME'</span>]</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> skill_cols:</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> c <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    df[c] <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_tokens_row(row):</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  toks <span class="op">=</span> []</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> c <span class="kw">in</span> skill_cols:</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    toks.extend(safe_tokens(row.get(c, <span class="st">''</span>)))</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> toks</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'all_skill_tokens'</span>] <span class="op">=</span> df.<span class="bu">apply</span>(build_tokens_row, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ml_skill_count'</span>] <span class="op">=</span> df[<span class="st">'all_skill_tokens'</span>].<span class="bu">apply</span>(count_ml_tokens)</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'n_skills'</span>] <span class="op">=</span> df[<span class="st">'all_skill_tokens'</span>].<span class="bu">apply</span>(<span class="bu">len</span>)</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="co"># build a salary numeric column: prefer SALARY (if present) else average of SALARY_FROM/SALARY_TO</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'SALARY'</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'salary_num'</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">'SALARY'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>  sf <span class="op">=</span> pd.to_numeric(df.get(<span class="st">'SALARY_FROM'</span>, pd.Series([<span class="va">None</span>]<span class="op">*</span><span class="bu">len</span>(df))), errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>  st <span class="op">=</span> pd.to_numeric(df.get(<span class="st">'SALARY_TO'</span>, pd.Series([<span class="va">None</span>]<span class="op">*</span><span class="bu">len</span>(df))), errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'salary_num'</span>] <span class="op">=</span> sf</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>  <span class="co"># if both available, take mean</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>  df.loc[<span class="op">~</span>sf.isna() <span class="op">&amp;</span> <span class="op">~</span>st.isna(), <span class="st">'salary_num'</span>] <span class="op">=</span> (sf <span class="op">+</span> st)<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="co"># keep rows with a positive salary</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>df_model <span class="op">=</span> df[df[<span class="st">'salary_num'</span>].notna() <span class="op">&amp;</span> (df[<span class="st">'salary_num'</span>]<span class="op">&gt;</span><span class="dv">0</span>)].copy()</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> df_model.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'No salary data available for clustering.'</span>)</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  X <span class="op">=</span> df_model[[<span class="st">'salary_num'</span>,<span class="st">'ml_skill_count'</span>,<span class="st">'n_skills'</span>]].fillna(<span class="dv">0</span>).to_numpy()</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>  scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>  Xs <span class="op">=</span> scaler.fit_transform(X)</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cluster into 2 groups (we'll map one group to ML jobs and the other to non-ML)</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>  kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>  labels <span class="op">=</span> kmeans.fit_predict(Xs)</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'cluster'</span>] <span class="op">=</span> labels</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mark ML job by whether it has any ML tokens</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'is_ml_job'</span>] <span class="op">=</span> df_model[<span class="st">'ml_skill_count'</span>]<span class="op">&gt;</span><span class="dv">0</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>  <span class="co"># determine which cluster has the higher proportion of ML jobs and label clusters accordingly</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span>:</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    cluster_ml_pct <span class="op">=</span> df_model.groupby(<span class="st">'cluster'</span>)[<span class="st">'is_ml_job'</span>].mean()</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> cluster_ml_pct.empty:</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>      ml_cluster <span class="op">=</span> <span class="bu">int</span>(cluster_ml_pct.idxmax())</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>      ml_cluster <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>  <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    ml_cluster <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'cluster_is_ml'</span>] <span class="op">=</span> df_model[<span class="st">'cluster'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> c: c <span class="op">==</span> ml_cluster)</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>  df_model[<span class="st">'cluster_label'</span>] <span class="op">=</span> df_model[<span class="st">'cluster_is_ml'</span>].<span class="bu">map</span>({<span class="va">True</span>: <span class="st">'ML cluster'</span>, <span class="va">False</span>: <span class="st">'Non-ML cluster'</span>})</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>  <span class="co"># summarize clusters</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>  summary <span class="op">=</span> df_model.groupby(<span class="st">'cluster'</span>).agg(</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    postings<span class="op">=</span>(<span class="st">'cluster'</span>,<span class="st">'size'</span>),</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>    avg_salary<span class="op">=</span>(<span class="st">'salary_num'</span>,<span class="st">'mean'</span>),</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>    median_salary<span class="op">=</span>(<span class="st">'salary_num'</span>,<span class="st">'median'</span>),</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    avg_ml_skill_count<span class="op">=</span>(<span class="st">'ml_skill_count'</span>,<span class="st">'mean'</span>),</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>    pct_ml_jobs<span class="op">=</span>(<span class="st">'is_ml_job'</span>, <span class="kw">lambda</span> x: <span class="dv">100</span><span class="op">*</span>x.mean())</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>  ).sort_index()</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Cluster summary (salary and ML presence):'</span>)</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(summary)</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># show cluster centers in original feature space</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>  centers <span class="op">=</span> scaler.inverse_transform(kmeans.cluster_centers_)</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Cluster centers (salary_num, ml_skill_count, n_skills):'</span>)</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i,c <span class="kw">in</span> <span class="bu">enumerate</span>(centers):</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Cluster </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:'</span>, c)</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>  <span class="co"># show top 10 sample postings per cluster that are ML jobs</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">sorted</span>(df_model[<span class="st">'cluster'</span>].unique()):</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> <span class="st">'='</span><span class="op">*</span><span class="dv">40</span>)</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Cluster </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> — top ML postings (sample)'</span>)</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>    sample <span class="op">=</span> df_model[(df_model[<span class="st">'cluster'</span>]<span class="op">==</span>i) <span class="op">&amp;</span> (df_model[<span class="st">'is_ml_job'</span>])].head(<span class="dv">10</span>)</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sample.empty:</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">'  (no ML postings in this cluster)'</span>)</span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> idx,row <span class="kw">in</span> sample.iterrows():</span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> row.get(<span class="st">'TITLE'</span>) <span class="kw">or</span> row.get(<span class="st">'TITLE_NAME'</span>) <span class="kw">or</span> <span class="st">''</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  id=</span><span class="sc">{</span>row<span class="sc">.</span>get(<span class="st">'ID'</span>)<span class="sc">}</span><span class="ss"> | salary=</span><span class="sc">{</span>row<span class="sc">.</span>get(<span class="st">'salary_num'</span>)<span class="sc">:.0f}</span><span class="ss"> | ml_count=</span><span class="sc">{</span>row<span class="sc">.</span>get(<span class="st">'ml_skill_count'</span>)<span class="sc">}</span><span class="ss"> | title=</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Cluster summary (salary and ML presence):
@@ -402,118 +411,285 @@ Cluster 1 — top ML postings (sample)
   id=0625296f2e6627c2261bf27e634bad063442d1de | salary=76460 | ml_count=4 | title=ET29293A7C0D786B75</code></pre>
 </div>
 </div>
-<div id="2ef177be" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Static Matplotlib KMeans scatter: salary (y, log) vs cluster (x jitter), color by NAICS group, outline for ML jobs ---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plot_df <span class="op">=</span> df_model[df_model[<span class="st">'salary_num'</span>].notna() <span class="op">&amp;</span> (df_model[<span class="st">'salary_num'</span>]<span class="op">&gt;</span><span class="dv">0</span>)].copy()</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> plot_df.empty:</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'No salary data available for static plotting.'</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="st">'cluster'</span> <span class="kw">not</span> <span class="kw">in</span> plot_df.columns:</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> plot_df[[<span class="st">'salary_num'</span>,<span class="st">'ml_skill_count'</span>,<span class="st">'n_skills'</span>]].fillna(<span class="dv">0</span>).to_numpy()</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    sc <span class="op">=</span> StandardScaler()<span class="op">;</span> Xs <span class="op">=</span> sc.fit_transform(X)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    kmeans_tmp <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="dv">10</span>).fit(Xs)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'cluster'</span>] <span class="op">=</span> kmeans_tmp.labels_</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># map which temporary cluster is ML-heavy</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      tmp_ml_pct <span class="op">=</span> plot_df.groupby(<span class="st">'cluster'</span>)[<span class="st">'ml_skill_count'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> s: (s<span class="op">&gt;</span><span class="dv">0</span>).mean())</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>      tmp_ml_cluster <span class="op">=</span> <span class="bu">int</span>(tmp_ml_pct.idxmax())</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      tmp_ml_cluster <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'cluster_is_ml'</span>] <span class="op">=</span> plot_df[<span class="st">'cluster'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> c: c <span class="op">==</span> tmp_ml_cluster)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'cluster'</span>] <span class="op">=</span> plot_df[<span class="st">'cluster_is_ml'</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Robust NAICS/industry column detection (case-insensitive). Prefer name/title/description columns.</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="im">import</span> re <span class="im">as</span> _re</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(plot_df.columns)</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  naics_like <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> _re.search(<span class="vs">r'naics</span><span class="cf">|</span><span class="vs">industry'</span>, c, _re.I)]</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  naics_name_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> naics_like <span class="cf">if</span> _re.search(<span class="vs">r'name</span><span class="cf">|</span><span class="vs">title</span><span class="cf">|</span><span class="vs">desc</span><span class="cf">|</span><span class="vs">sector'</span>, c, _re.I)]</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  naics_code_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> naics_like <span class="cf">if</span> _re.search(<span class="vs">r'code</span><span class="cf">|</span><span class="vs">id</span><span class="cf">|</span><span class="vs">num</span><span class="cf">|</span><span class="dv">^</span><span class="vs">naics</span><span class="dv">$</span><span class="vs">'</span>, c, _re.I)]</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> naics_name_cols:</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    naics_col <span class="op">=</span> naics_name_cols[<span class="dv">0</span>]</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> plot_df[naics_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>)</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> naics_like <span class="kw">and</span> naics_code_cols:</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># prefer code column if only codes are present</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    code_col <span class="op">=</span> naics_code_cols[<span class="dv">0</span>]</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> plot_df[code_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> v: <span class="ss">f"NAICS </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> <span class="bu">str</span>(v).strip()<span class="op">!=</span><span class="st">''</span> <span class="cf">else</span> <span class="st">'Unknown'</span>)</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> naics_like:</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fallback: use first matching column</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    naics_col <span class="op">=</span> naics_like[<span class="dv">0</span>]</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> plot_df[naics_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>)</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> <span class="st">'Unknown'</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>  top_naics <span class="op">=</span> plot_df[<span class="st">'naics_group'</span>].value_counts().nlargest(<span class="dv">10</span>).index.tolist()</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>  plot_df[<span class="st">'naics_top'</span>] <span class="op">=</span> plot_df[<span class="st">'naics_group'</span>].where(plot_df[<span class="st">'naics_group'</span>].isin(top_naics), <span class="st">'Other'</span>)</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  plot_df[<span class="st">'ml_flag'</span>] <span class="op">=</span> plot_df[<span class="st">'is_ml_job'</span>]</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>  rng <span class="op">=</span> np.random.default_rng(<span class="dv">6</span>)</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>  plot_df[<span class="st">'x_jitter'</span>] <span class="op">=</span> plot_df[<span class="st">'cluster'</span>].astype(<span class="bu">int</span>) <span class="op">+</span> rng.normal(<span class="dv">0</span>, <span class="fl">0.12</span>, size<span class="op">=</span><span class="bu">len</span>(plot_df))</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sample for plotting to keep figure readable</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>  sample_df <span class="op">=</span> plot_df.sample(n<span class="op">=</span><span class="bu">min</span>(<span class="dv">20000</span>, <span class="bu">len</span>(plot_df)), random_state<span class="op">=</span><span class="dv">7</span>)</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>  plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>  groups <span class="op">=</span> sample_df.groupby(<span class="st">'naics_top'</span>)</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>  cmap <span class="op">=</span> plt.get_cmap(<span class="st">'tab10'</span>)</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>  colors <span class="op">=</span> {g: cmap(i <span class="op">%</span> <span class="dv">10</span>) <span class="cf">for</span> i,g <span class="kw">in</span> <span class="bu">enumerate</span>(groups.groups.keys())}</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> g, sub <span class="kw">in</span> groups:</span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    plt.scatter(sub[<span class="st">'x_jitter'</span>], sub[<span class="st">'salary_num'</span>], s<span class="op">=</span><span class="dv">18</span>, alpha<span class="op">=</span><span class="fl">0.65</span>, label<span class="op">=</span>g, color<span class="op">=</span>colors[g])</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># outline ML jobs (do not add a legend entry for the outline)</span></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>  ml_sub <span class="op">=</span> sample_df[sample_df[<span class="st">'ml_flag'</span>]]</span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>  plt.scatter(ml_sub[<span class="st">'x_jitter'</span>], ml_sub[<span class="st">'salary_num'</span>], facecolors<span class="op">=</span><span class="st">'none'</span>, edgecolors<span class="op">=</span><span class="st">'k'</span>, s<span class="op">=</span><span class="dv">45</span>, linewidths<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use linear scale so we can show dollar ticks every $25,000 as requested</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>  plt.yscale(<span class="st">'linear'</span>)</span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>  plt.xlabel(<span class="st">'KMeans cluster (jittered)'</span>)</span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>  plt.ylabel(<span class="st">'Salary (USD, log scale)'</span>)</span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>  plt.title(<span class="st">'KMeans clusters: Salary by NAICS group; ML jobs outlined'</span>)</span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Label x-axis clusters explicitly: 1 = ML jobs, 0 = Non-ML jobs</span></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>  cluster_order <span class="op">=</span> <span class="bu">sorted</span>(plot_df[<span class="st">'cluster'</span>].unique())</span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>  <span class="co"># map 1-&gt;ML cluster label</span></span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>  xtick_labels <span class="op">=</span> []</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> c <span class="kw">in</span> cluster_order:</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'cluster_label'</span> <span class="kw">in</span> plot_df.columns:</span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>      <span class="co"># use cluster_label if present</span></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>      lab <span class="op">=</span> <span class="st">'Jobs Requiring ML/DS Skills'</span> <span class="cf">if</span> (plot_df[<span class="st">'cluster_label'</span>].iloc[<span class="dv">0</span>] <span class="op">==</span> <span class="st">'ML cluster'</span> <span class="kw">and</span> c<span class="op">==</span><span class="dv">1</span>) <span class="kw">or</span> (plot_df[<span class="st">'cluster_label'</span>].unique().size<span class="op">==</span><span class="dv">2</span> <span class="kw">and</span> plot_df.loc[plot_df[<span class="st">'cluster'</span>]<span class="op">==</span>c,<span class="st">'cluster_label'</span>].iloc[<span class="dv">0</span>]<span class="op">==</span><span class="st">'ML cluster'</span>) <span class="cf">else</span> <span class="st">'Jobs Not Requiring ML/DS Skills'</span></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>      lab <span class="op">=</span> <span class="st">'Jobs Requiring ML/DS Skills'</span> <span class="cf">if</span> c<span class="op">==</span><span class="dv">1</span> <span class="cf">else</span> <span class="st">'Jobs Not Requiring ML/DS Skills'</span></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>    xtick_labels.append(lab)</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>  plt.xticks(cluster_order, xtick_labels, rotation<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>  <span class="co"># set major y-ticks every $25,000 from min to max salary (rounded)</span></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>  ymin <span class="op">=</span> math.floor(sample_df[<span class="st">'salary_num'</span>].<span class="bu">min</span>() <span class="op">/</span> <span class="dv">25000</span>) <span class="op">*</span> <span class="dv">25000</span></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>  ymax <span class="op">=</span> math.ceil(sample_df[<span class="st">'salary_num'</span>].<span class="bu">max</span>() <span class="op">/</span> <span class="dv">25000</span>) <span class="op">*</span> <span class="dv">25000</span></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>  y_ticks <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">int</span>(ymin), <span class="bu">int</span>(ymax)<span class="op">+</span><span class="dv">1</span>, <span class="dv">25000</span>))</span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>  plt.gca().set_yticks(y_ticks)</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> usd(x, pos):</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"$</span><span class="sc">{</span>x<span class="sc">:,.0f}</span><span class="ss">"</span></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>  plt.gca().yaxis.set_major_formatter(FuncFormatter(usd))</span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>  <span class="co"># keep legend for NAICS groups only, not the ML outline</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>  plt.legend(title<span class="op">=</span><span class="st">'NAICS (top)'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.02</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>  plt.tight_layout()</span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>  out_png <span class="op">=</span> <span class="st">'figures/kmeans_salary_naics_scatter.png'</span></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>  plt.savefig(out_png, dpi<span class="op">=</span><span class="dv">220</span>)</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'Saved static KMeans NAICS scatter to'</span>, out_png)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="be0f62e8" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Static Matplotlib KMeans scatter: salary (y, log) vs cluster (x jitter), color by NAICS group, outline for ML jobs ---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plot_df <span class="op">=</span> df_model[df_model[<span class="st">'salary_num'</span>].notna() <span class="op">&amp;</span> (df_model[<span class="st">'salary_num'</span>]<span class="op">&gt;</span><span class="dv">0</span>)].copy()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> plot_df.empty:</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'No salary data available for static plotting.'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="st">'cluster'</span> <span class="kw">not</span> <span class="kw">in</span> plot_df.columns:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> plot_df[[<span class="st">'salary_num'</span>,<span class="st">'ml_skill_count'</span>,<span class="st">'n_skills'</span>]].fillna(<span class="dv">0</span>).to_numpy()</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    sc <span class="op">=</span> StandardScaler()<span class="op">;</span> Xs <span class="op">=</span> sc.fit_transform(X)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    kmeans_tmp <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="dv">10</span>).fit(Xs)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'cluster'</span>] <span class="op">=</span> kmeans_tmp.labels_</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># map which temporary cluster is ML-heavy</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      tmp_ml_pct <span class="op">=</span> plot_df.groupby(<span class="st">'cluster'</span>)[<span class="st">'ml_skill_count'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> s: (s<span class="op">&gt;</span><span class="dv">0</span>).mean())</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      tmp_ml_cluster <span class="op">=</span> <span class="bu">int</span>(tmp_ml_pct.idxmax())</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      tmp_ml_cluster <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'cluster_is_ml'</span>] <span class="op">=</span> plot_df[<span class="st">'cluster'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> c: c <span class="op">==</span> tmp_ml_cluster)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'cluster'</span>] <span class="op">=</span> plot_df[<span class="st">'cluster_is_ml'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Robust NAICS/industry column detection (case-insensitive). Prefer name/title/description columns.</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="im">import</span> re <span class="im">as</span> _re</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  cols <span class="op">=</span> <span class="bu">list</span>(plot_df.columns)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  naics_like <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> _re.search(<span class="vs">r'naics</span><span class="cf">|</span><span class="vs">industry'</span>, c, _re.I)]</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  naics_name_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> naics_like <span class="cf">if</span> _re.search(<span class="vs">r'name</span><span class="cf">|</span><span class="vs">title</span><span class="cf">|</span><span class="vs">desc</span><span class="cf">|</span><span class="vs">sector'</span>, c, _re.I)]</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  naics_code_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> naics_like <span class="cf">if</span> _re.search(<span class="vs">r'code</span><span class="cf">|</span><span class="vs">id</span><span class="cf">|</span><span class="vs">num</span><span class="cf">|</span><span class="dv">^</span><span class="vs">naics</span><span class="dv">$</span><span class="vs">'</span>, c, _re.I)]</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> naics_name_cols:</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    naics_col <span class="op">=</span> naics_name_cols[<span class="dv">0</span>]</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> plot_df[naics_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> naics_like <span class="kw">and</span> naics_code_cols:</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># prefer code column if only codes are present</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    code_col <span class="op">=</span> naics_code_cols[<span class="dv">0</span>]</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> plot_df[code_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> v: <span class="ss">f"NAICS </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> <span class="bu">str</span>(v).strip()<span class="op">!=</span><span class="st">''</span> <span class="cf">else</span> <span class="st">'Unknown'</span>)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> naics_like:</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fallback: use first matching column</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    naics_col <span class="op">=</span> naics_like[<span class="dv">0</span>]</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> plot_df[naics_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    plot_df[<span class="st">'naics_group'</span>] <span class="op">=</span> <span class="st">'Unknown'</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  top_naics <span class="op">=</span> plot_df[<span class="st">'naics_group'</span>].value_counts().nlargest(<span class="dv">10</span>).index.tolist()</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>  plot_df[<span class="st">'naics_top'</span>] <span class="op">=</span> plot_df[<span class="st">'naics_group'</span>].where(plot_df[<span class="st">'naics_group'</span>].isin(top_naics), <span class="st">'Other'</span>)</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>  plot_df[<span class="st">'ml_flag'</span>] <span class="op">=</span> plot_df[<span class="st">'is_ml_job'</span>]</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>  rng <span class="op">=</span> np.random.default_rng(<span class="dv">6</span>)</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>  plot_df[<span class="st">'x_jitter'</span>] <span class="op">=</span> plot_df[<span class="st">'cluster'</span>].astype(<span class="bu">int</span>) <span class="op">+</span> rng.normal(<span class="dv">0</span>, <span class="fl">0.12</span>, size<span class="op">=</span><span class="bu">len</span>(plot_df))</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sample for plotting to keep figure readable</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>  sample_df <span class="op">=</span> plot_df.sample(n<span class="op">=</span><span class="bu">min</span>(<span class="dv">20000</span>, <span class="bu">len</span>(plot_df)), random_state<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>  plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>  groups <span class="op">=</span> sample_df.groupby(<span class="st">'naics_top'</span>)</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>  cmap <span class="op">=</span> plt.get_cmap(<span class="st">'tab10'</span>)</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>  colors <span class="op">=</span> {g: cmap(i <span class="op">%</span> <span class="dv">10</span>) <span class="cf">for</span> i,g <span class="kw">in</span> <span class="bu">enumerate</span>(groups.groups.keys())}</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> g, sub <span class="kw">in</span> groups:</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>    plt.scatter(sub[<span class="st">'x_jitter'</span>], sub[<span class="st">'salary_num'</span>], s<span class="op">=</span><span class="dv">18</span>, alpha<span class="op">=</span><span class="fl">0.65</span>, label<span class="op">=</span>g, color<span class="op">=</span>colors[g])</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># outline ML jobs (do not add a legend entry for the outline)</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>  ml_sub <span class="op">=</span> sample_df[sample_df[<span class="st">'ml_flag'</span>]]</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>  plt.scatter(ml_sub[<span class="st">'x_jitter'</span>], ml_sub[<span class="st">'salary_num'</span>], facecolors<span class="op">=</span><span class="st">'none'</span>, edgecolors<span class="op">=</span><span class="st">'k'</span>, s<span class="op">=</span><span class="dv">45</span>, linewidths<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use linear scale so we can show dollar ticks every $25,000 as requested</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>  plt.yscale(<span class="st">'linear'</span>)</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>  plt.xlabel(<span class="st">'KMeans cluster (jittered)'</span>)</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>  plt.ylabel(<span class="st">'Salary (USD, log scale)'</span>)</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>  plt.title(<span class="st">'KMeans clusters: Salary by NAICS group; ML jobs outlined'</span>)</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Label x-axis clusters explicitly: 1 = ML jobs, 0 = Non-ML jobs</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>  cluster_order <span class="op">=</span> <span class="bu">sorted</span>(plot_df[<span class="st">'cluster'</span>].unique())</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>  <span class="co"># map 1-&gt;ML cluster label</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>  xtick_labels <span class="op">=</span> []</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> c <span class="kw">in</span> cluster_order:</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'cluster_label'</span> <span class="kw">in</span> plot_df.columns:</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>      <span class="co"># use cluster_label if present</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>      lab <span class="op">=</span> <span class="st">'Jobs Requiring ML/DS Skills'</span> <span class="cf">if</span> (plot_df[<span class="st">'cluster_label'</span>].iloc[<span class="dv">0</span>] <span class="op">==</span> <span class="st">'ML cluster'</span> <span class="kw">and</span> c<span class="op">==</span><span class="dv">1</span>) <span class="kw">or</span> (plot_df[<span class="st">'cluster_label'</span>].unique().size<span class="op">==</span><span class="dv">2</span> <span class="kw">and</span> plot_df.loc[plot_df[<span class="st">'cluster'</span>]<span class="op">==</span>c,<span class="st">'cluster_label'</span>].iloc[<span class="dv">0</span>]<span class="op">==</span><span class="st">'ML cluster'</span>) <span class="cf">else</span> <span class="st">'Jobs Not Requiring ML/DS Skills'</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>      lab <span class="op">=</span> <span class="st">'Jobs Requiring ML/DS Skills'</span> <span class="cf">if</span> c<span class="op">==</span><span class="dv">1</span> <span class="cf">else</span> <span class="st">'Jobs Not Requiring ML/DS Skills'</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>    xtick_labels.append(lab)</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>  plt.xticks(cluster_order, xtick_labels, rotation<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>  <span class="co"># set major y-ticks every $25,000 from min to max salary (rounded)</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>  ymin <span class="op">=</span> math.floor(sample_df[<span class="st">'salary_num'</span>].<span class="bu">min</span>() <span class="op">/</span> <span class="dv">25000</span>) <span class="op">*</span> <span class="dv">25000</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>  ymax <span class="op">=</span> math.ceil(sample_df[<span class="st">'salary_num'</span>].<span class="bu">max</span>() <span class="op">/</span> <span class="dv">25000</span>) <span class="op">*</span> <span class="dv">25000</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>  y_ticks <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">int</span>(ymin), <span class="bu">int</span>(ymax)<span class="op">+</span><span class="dv">1</span>, <span class="dv">25000</span>))</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>  plt.gca().set_yticks(y_ticks)</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> usd(x, pos):</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"$</span><span class="sc">{</span>x<span class="sc">:,.0f}</span><span class="ss">"</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>  plt.gca().yaxis.set_major_formatter(FuncFormatter(usd))</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>  <span class="co"># keep legend for NAICS groups only, not the ML outline</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>  plt.legend(title<span class="op">=</span><span class="st">'NAICS (top)'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.02</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>  plt.tight_layout()</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>  out_png <span class="op">=</span> <span class="st">'figures/kmeans_salary_naics_scatter.png'</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>  plt.savefig(out_png, dpi<span class="op">=</span><span class="dv">220</span>)</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'Saved static KMeans NAICS scatter to'</span>, out_png)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Saved static KMeans NAICS scatter to figures/kmeans_salary_naics_scatter.png</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="regression_classification_files/figure-html/cell-4-output-2.png" width="1128" height="752" class="figure-img"></p>
+<p><img src="regression_classification_files/figure-html/cell-5-output-2.png" width="1126" height="751" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="e7fd0095" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Multiple linear regression: log(salary) on ML-job indicator, industry fixed effects, and controls ---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># prefer df_model if available (created during clustering); otherwise fall back to plot_df</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>source_df <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'df_model'</span> <span class="kw">in</span> <span class="bu">globals</span>():</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  source_df <span class="op">=</span> df_model.copy()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="st">'plot_df'</span> <span class="kw">in</span> <span class="bu">globals</span>():</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  source_df <span class="op">=</span> plot_df.copy()</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  source_df <span class="op">=</span> df.copy()</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure salary numeric present</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> source_df <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> source_df.empty <span class="kw">or</span> <span class="st">'salary_num'</span> <span class="kw">not</span> <span class="kw">in</span> source_df.columns:</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'No usable salary data available for regression.'</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  df_reg <span class="op">=</span> source_df[source_df[<span class="st">'salary_num'</span>].notna() <span class="op">&amp;</span> (source_df[<span class="st">'salary_num'</span>]<span class="op">&gt;</span><span class="dv">0</span>)].copy()</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> df_reg.empty:</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'No salary rows after filtering for regression.'</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># detect NAICS/industry column robustly (same approach as plotting)</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> re <span class="im">as</span> _re</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> <span class="bu">list</span>(df_reg.columns)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    naics_like <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> _re.search(<span class="vs">r'naics</span><span class="cf">|</span><span class="vs">industry'</span>, c, _re.I)]</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    naics_name_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> naics_like <span class="cf">if</span> _re.search(<span class="vs">r'name</span><span class="cf">|</span><span class="vs">title</span><span class="cf">|</span><span class="vs">desc</span><span class="cf">|</span><span class="vs">sector'</span>, c, _re.I)]</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    naics_code_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> naics_like <span class="cf">if</span> _re.search(<span class="vs">r'code</span><span class="cf">|</span><span class="vs">id</span><span class="cf">|</span><span class="vs">num</span><span class="cf">|</span><span class="dv">^</span><span class="vs">naics</span><span class="dv">$</span><span class="vs">'</span>, c, _re.I)]</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> naics_name_cols:</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      naics_col <span class="op">=</span> naics_name_cols[<span class="dv">0</span>]</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>      df_reg[<span class="st">'naics_group'</span>] <span class="op">=</span> df_reg[naics_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> naics_like <span class="kw">and</span> naics_code_cols:</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>      code_col <span class="op">=</span> naics_code_cols[<span class="dv">0</span>]</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>      df_reg[<span class="st">'naics_group'</span>] <span class="op">=</span> df_reg[code_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> v: <span class="ss">f"NAICS </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> <span class="bu">str</span>(v).strip()<span class="op">!=</span><span class="st">''</span> <span class="cf">else</span> <span class="st">'Unknown'</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> naics_like:</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>      naics_col <span class="op">=</span> naics_like[<span class="dv">0</span>]</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>      df_reg[<span class="st">'naics_group'</span>] <span class="op">=</span> df_reg[naics_col].fillna(<span class="st">'Unknown'</span>).astype(<span class="bu">str</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>      df_reg[<span class="st">'naics_group'</span>] <span class="op">=</span> <span class="st">'Unknown'</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># build top-industry grouping similar to plotting</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    top_naics <span class="op">=</span> df_reg[<span class="st">'naics_group'</span>].value_counts().nlargest(<span class="dv">10</span>).index.tolist()</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    df_reg[<span class="st">'naics_top'</span>] <span class="op">=</span> df_reg[<span class="st">'naics_group'</span>].where(df_reg[<span class="st">'naics_group'</span>].isin(top_naics), <span class="st">'Other'</span>)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create binary indicator: whether the posting requires ML/DS skills</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># keep `is_ml_job` for backwards compatibility with the formula</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    df_reg[<span class="st">'requires_ml_skill'</span>] <span class="op">=</span> df_reg.get(<span class="st">'ml_skill_count'</span>, <span class="dv">0</span>) <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    df_reg[<span class="st">'is_ml_job'</span>] <span class="op">=</span> df_reg[<span class="st">'requires_ml_skill'</span>]</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    df_reg[<span class="st">'log_salary'</span>] <span class="op">=</span> np.log(df_reg[<span class="st">'salary_num'</span>].astype(<span class="bu">float</span>))</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># add simple controls if missing</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'n_skills'</span> <span class="kw">not</span> <span class="kw">in</span> df_reg.columns:</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>      df_reg[<span class="st">'n_skills'</span>] <span class="op">=</span> df_reg.get(<span class="st">'all_skill_tokens'</span>, []).<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">len</span>(x) <span class="cf">if</span> <span class="bu">isinstance</span>(x, (<span class="bu">list</span>, <span class="bu">tuple</span>)) <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'ml_skill_count'</span> <span class="kw">not</span> <span class="kw">in</span> df_reg.columns:</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>      df_reg[<span class="st">'ml_skill_count'</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fit OLS with industry fixed effects and interaction: log_salary ~ is_ml_job * C(naics_top) + n_skills + ml_skill_count</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    formula <span class="op">=</span> <span class="st">'log_salary ~ is_ml_job * C(naics_top) + n_skills + ml_skill_count'</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>      model <span class="op">=</span> smf.ols(formula<span class="op">=</span>formula, data<span class="op">=</span>df_reg).fit(cov_type<span class="op">=</span><span class="st">'HC3'</span>)</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(model.summary())</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>      <span class="co"># save summary to file</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>      <span class="cf">with</span> <span class="bu">open</span>(<span class="st">'figures/ols_summary.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>        f.write(model.summary().as_text())</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">'Regression failed:'</span>, e)</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>      model <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If model fit, compute predicted salaries for ML vs non-ML by industry</span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> model <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>      preds <span class="op">=</span> []</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>      <span class="co"># use mean of numeric controls for prediction</span></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>      mean_n_skills <span class="op">=</span> df_reg[<span class="st">'n_skills'</span>].mean() <span class="cf">if</span> <span class="st">'n_skills'</span> <span class="kw">in</span> df_reg.columns <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>      mean_ml_skill_count <span class="op">=</span> df_reg[<span class="st">'ml_skill_count'</span>].mean() <span class="cf">if</span> <span class="st">'ml_skill_count'</span> <span class="kw">in</span> df_reg.columns <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> ind <span class="kw">in</span> df_reg[<span class="st">'naics_top'</span>].unique():</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ml_flag <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">1</span>]:</span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>          <span class="co"># model expects `is_ml_job` variable (we set it above), so pass that for prediction</span></span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>          row <span class="op">=</span> { <span class="st">'is_ml_job'</span>: ml_flag, <span class="st">'n_skills'</span>: mean_n_skills, <span class="st">'ml_skill_count'</span>: mean_ml_skill_count, <span class="st">'naics_top'</span>: ind }</span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>          <span class="cf">try</span>:</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>            pred_res <span class="op">=</span> model.get_prediction(pd.DataFrame([row]))</span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>            pred_mean_log <span class="op">=</span> pred_res.predicted_mean[<span class="dv">0</span>]</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>            pred_mean <span class="op">=</span> <span class="bu">float</span>(np.exp(pred_mean_log))</span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>          <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>            pred_mean <span class="op">=</span> np.nan</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>          preds.append({<span class="st">'naics_top'</span>: ind, <span class="st">'is_ml_job'</span>: <span class="bu">bool</span>(ml_flag), <span class="st">'predicted_salary'</span>: pred_mean})</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>      pred_df <span class="op">=</span> pd.DataFrame(preds).dropna()</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>      <span class="co"># sort industries by total postings to keep consistent order</span></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>      order <span class="op">=</span> df_reg[<span class="st">'naics_top'</span>].value_counts().loc[<span class="kw">lambda</span> x: x.index.isin(pred_df[<span class="st">'naics_top'</span>])].index.tolist()</span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>      pred_df[<span class="st">'naics_top'</span>] <span class="op">=</span> pd.Categorical(pred_df[<span class="st">'naics_top'</span>], categories<span class="op">=</span>order, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Map boolean to readable labels and plot side-by-side bars for predicted salary by industry</span></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>  pred_df[<span class="st">'requires_label'</span>] <span class="op">=</span> pred_df[<span class="st">'is_ml_job'</span>].<span class="bu">map</span>({<span class="va">True</span>: <span class="st">'Jobs requiring ML/DS skills'</span>, <span class="va">False</span>: <span class="st">'Jobs not requiring ML/DS skills'</span>})</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>  plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>,<span class="dv">7</span>))</span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>  sns.barplot(data<span class="op">=</span>pred_df, x<span class="op">=</span><span class="st">'naics_top'</span>, y<span class="op">=</span><span class="st">'predicted_salary'</span>, hue<span class="op">=</span><span class="st">'requires_label'</span>)</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>  plt.xlabel(<span class="st">'Industry (top)'</span>)</span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>  plt.ylabel(<span class="st">'Predicted Salary (USD)'</span>)</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>  plt.title(<span class="st">'Predicted salary by industry — Jobs requiring ML/DS skills vs not (controls at mean)'</span>)</span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>  plt.xticks(rotation<span class="op">=</span><span class="dv">25</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>  plt.legend(title<span class="op">=</span><span class="st">'Requirement'</span>)</span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>  plt.tight_layout()</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>  out_png2 <span class="op">=</span> <span class="st">'figures/regression_predicted_salary_by_industry.png'</span></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>  plt.savefig(out_png2, dpi<span class="op">=</span><span class="dv">220</span>)</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'Saved regression predicted-salary figure to'</span>, out_png2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             log_salary   R-squared:                       0.191
+Model:                            OLS   Adj. R-squared:                  0.191
+Method:                 Least Squares   F-statistic:                     309.8
+Date:                Mon, 06 Oct 2025   Prob (F-statistic):               0.00
+Time:                        20:55:19   Log-Likelihood:                -12854.
+No. Observations:               30808   AIC:                         2.576e+04
+Df Residuals:                   30784   BIC:                         2.596e+04
+Df Model:                          23                                         
+Covariance Type:                  HC3                                         
+======================================================================================================================================================
+                                                                                         coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                             11.3067      0.009   1294.039      0.000      11.290      11.324
+is_ml_job[T.True]                                                                     -0.0311      0.015     -2.017      0.044      -0.061      -0.001
+C(naics_top)[T.Educational Services]                                                  -0.2659      0.018    -14.947      0.000      -0.301      -0.231
+C(naics_top)[T.Finance and Insurance]                                                  0.1542      0.010     14.728      0.000       0.134       0.175
+C(naics_top)[T.Health Care and Social Assistance]                                     -0.0751      0.019     -3.963      0.000      -0.112      -0.038
+C(naics_top)[T.Information]                                                            0.2528      0.012     20.459      0.000       0.229       0.277
+C(naics_top)[T.Manufacturing]                                                          0.1256      0.013      9.645      0.000       0.100       0.151
+C(naics_top)[T.Other]                                                                 -0.0396      0.013     -3.073      0.002      -0.065      -0.014
+C(naics_top)[T.Professional, Scientific, and Technical Services]                       0.3019      0.009     35.075      0.000       0.285       0.319
+C(naics_top)[T.Retail Trade]                                                           0.1250      0.022      5.597      0.000       0.081       0.169
+C(naics_top)[T.Unclassified Industry]                                                  0.0511      0.012      4.428      0.000       0.028       0.074
+C(naics_top)[T.Wholesale Trade]                                                        0.0582      0.014      4.186      0.000       0.031       0.085
+is_ml_job[T.True]:C(naics_top)[T.Educational Services]                                 0.0075      0.026      0.290      0.772      -0.043       0.058
+is_ml_job[T.True]:C(naics_top)[T.Finance and Insurance]                               -0.0645      0.019     -3.468      0.001      -0.101      -0.028
+is_ml_job[T.True]:C(naics_top)[T.Health Care and Social Assistance]                    0.0758      0.025      3.013      0.003       0.026       0.125
+is_ml_job[T.True]:C(naics_top)[T.Information]                                          0.0766      0.023      3.380      0.001       0.032       0.121
+is_ml_job[T.True]:C(naics_top)[T.Manufacturing]                                        0.0032      0.024      0.135      0.893      -0.043       0.050
+is_ml_job[T.True]:C(naics_top)[T.Other]                                               -0.0328      0.020     -1.618      0.106      -0.072       0.007
+is_ml_job[T.True]:C(naics_top)[T.Professional, Scientific, and Technical Services]    -0.2256      0.018    -12.484      0.000      -0.261      -0.190
+is_ml_job[T.True]:C(naics_top)[T.Retail Trade]                                         0.0471      0.033      1.421      0.155      -0.018       0.112
+is_ml_job[T.True]:C(naics_top)[T.Unclassified Industry]                               -0.0603      0.021     -2.822      0.005      -0.102      -0.018
+is_ml_job[T.True]:C(naics_top)[T.Wholesale Trade]                                     -0.0459      0.034     -1.343      0.179      -0.113       0.021
+n_skills                                                                               0.0036   7.65e-05     46.942      0.000       0.003       0.004
+ml_skill_count                                                                        -0.0044      0.001     -3.682      0.000      -0.007      -0.002
+==============================================================================
+Omnibus:                      561.884   Durbin-Watson:                   1.929
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              619.562
+Skew:                          -0.304   Prob(JB):                    2.91e-135
+Kurtosis:                       3.336   Cond. No.                     1.62e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 1.62e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+Saved regression predicted-salary figure to figures/regression_predicted_salary_by_industry.png</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_classification_files/figure-html/cell-6-output-2.png" width="1336" height="655" class="figure-img"></p>
 </figure>
 </div>
 </div>

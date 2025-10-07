@@ -1,0 +1,49 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             log_salary   R-squared:                       0.191
+Model:                            OLS   Adj. R-squared:                  0.191
+Method:                 Least Squares   F-statistic:                     309.8
+Date:                Mon, 06 Oct 2025   Prob (F-statistic):               0.00
+Time:                        20:55:19   Log-Likelihood:                -12854.
+No. Observations:               30808   AIC:                         2.576e+04
+Df Residuals:                   30784   BIC:                         2.596e+04
+Df Model:                          23                                         
+Covariance Type:                  HC3                                         
+======================================================================================================================================================
+                                                                                         coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                             11.3067      0.009   1294.039      0.000      11.290      11.324
+is_ml_job[T.True]                                                                     -0.0311      0.015     -2.017      0.044      -0.061      -0.001
+C(naics_top)[T.Educational Services]                                                  -0.2659      0.018    -14.947      0.000      -0.301      -0.231
+C(naics_top)[T.Finance and Insurance]                                                  0.1542      0.010     14.728      0.000       0.134       0.175
+C(naics_top)[T.Health Care and Social Assistance]                                     -0.0751      0.019     -3.963      0.000      -0.112      -0.038
+C(naics_top)[T.Information]                                                            0.2528      0.012     20.459      0.000       0.229       0.277
+C(naics_top)[T.Manufacturing]                                                          0.1256      0.013      9.645      0.000       0.100       0.151
+C(naics_top)[T.Other]                                                                 -0.0396      0.013     -3.073      0.002      -0.065      -0.014
+C(naics_top)[T.Professional, Scientific, and Technical Services]                       0.3019      0.009     35.075      0.000       0.285       0.319
+C(naics_top)[T.Retail Trade]                                                           0.1250      0.022      5.597      0.000       0.081       0.169
+C(naics_top)[T.Unclassified Industry]                                                  0.0511      0.012      4.428      0.000       0.028       0.074
+C(naics_top)[T.Wholesale Trade]                                                        0.0582      0.014      4.186      0.000       0.031       0.085
+is_ml_job[T.True]:C(naics_top)[T.Educational Services]                                 0.0075      0.026      0.290      0.772      -0.043       0.058
+is_ml_job[T.True]:C(naics_top)[T.Finance and Insurance]                               -0.0645      0.019     -3.468      0.001      -0.101      -0.028
+is_ml_job[T.True]:C(naics_top)[T.Health Care and Social Assistance]                    0.0758      0.025      3.013      0.003       0.026       0.125
+is_ml_job[T.True]:C(naics_top)[T.Information]                                          0.0766      0.023      3.380      0.001       0.032       0.121
+is_ml_job[T.True]:C(naics_top)[T.Manufacturing]                                        0.0032      0.024      0.135      0.893      -0.043       0.050
+is_ml_job[T.True]:C(naics_top)[T.Other]                                               -0.0328      0.020     -1.618      0.106      -0.072       0.007
+is_ml_job[T.True]:C(naics_top)[T.Professional, Scientific, and Technical Services]    -0.2256      0.018    -12.484      0.000      -0.261      -0.190
+is_ml_job[T.True]:C(naics_top)[T.Retail Trade]                                         0.0471      0.033      1.421      0.155      -0.018       0.112
+is_ml_job[T.True]:C(naics_top)[T.Unclassified Industry]                               -0.0603      0.021     -2.822      0.005      -0.102      -0.018
+is_ml_job[T.True]:C(naics_top)[T.Wholesale Trade]                                     -0.0459      0.034     -1.343      0.179      -0.113       0.021
+n_skills                                                                               0.0036   7.65e-05     46.942      0.000       0.003       0.004
+ml_skill_count                                                                        -0.0044      0.001     -3.682      0.000      -0.007      -0.002
+==============================================================================
+Omnibus:                      561.884   Durbin-Watson:                   1.929
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              619.562
+Skew:                          -0.304   Prob(JB):                    2.91e-135
+Kurtosis:                       3.336   Cond. No.                     1.62e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 1.62e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
