@@ -23,6 +23,11 @@ website:
         text: "ML Methods"
       - href: nlp_methods.qmd/ipynb
         text: "NLP Methods"
+      - href: career_plan.qmd
+        text: "Career Plan"
+      - href: about.qmd
+        text: "About"
+
 
 format:
   html:
