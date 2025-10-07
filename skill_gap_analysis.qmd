@@ -121,7 +121,7 @@ mapping_table = pd.DataFrame({
 })
 display(mapping_table)
 ```
-**Results and Improvement Plan**
+**Results**
 Our team analyzed and compared their self-assessed skills scores with the top ten most in-demand industry skills extracted from job postings. The results showed strong coverage across technical areas, particularly in data analytics, SQL, and operations, with Python, programming languages, and cloud computing as the foundation. These skills align closely with market demand and position the team well for data-centric and technical roles.
 
 However, the analysis also revealed significant shortcomings. The team lacked formal expertise in project management, business needs, and leadership. While corporate HR departments consistently emphasize these areas as crucial for roles bridging technology and business, particularly in managing teams or translating technology solutions into business value, our overall coverage was 60%, highlighting significant room for improvement.
