@@ -152,6 +152,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./nlp_methods.qmd/ipynb"> 
 <span class="menu-text">NLP Methods</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./career_plan.html"> 
+<span class="menu-text">Career Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -196,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="e5f6d41a" class="cell" data-execution_count="1">
+<div id="7bae5485" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
@@ -206,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="build-team-skill-dataframe" class="level1">
 <h1>Build Team Skill DataFrame</h1>
-<div id="5cbfa3d7" class="cell" data-execution_count="2">
+<div id="ed0a52d1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>skills_data <span class="op">=</span> {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Name"</span>: [<span class="st">"Yibei"</span>, <span class="st">"Fuhan"</span>, <span class="st">"Jonathan"</span>],</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Python"</span>: [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>],</span>
@@ -238,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="extract-top-industry-skills" class="level1">
 <h1>Extract Top Industry Skills</h1>
-<div id="edeb739c" class="cell" data-execution_count="3">
+<div id="b368d9f7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>job_posts <span class="op">=</span> pd.read_csv(<span class="st">"data/lightcast_job_postings.csv"</span>, low_memory<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"SKILLS_NAME"</span> <span class="kw">in</span> job_posts.columns:</span>
@@ -268,7 +276,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="compare-team-vs-industry-skills" class="level1">
 <h1>Compare Team vs Industry Skills</h1>
-<div id="8609019d" class="cell" data-execution_count="4">
+<div id="303c545b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rename_map <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SQL"</span>: <span class="st">"SQL (Programming Language)"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Python"</span>: <span class="st">"Data Analysis"</span>,          </span>
@@ -334,8 +342,8 @@ Name: count, dtype: int64</code></pre>
 <span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>display(mapping_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>✅ Covered Skills: {'Communication', 'SQL (Programming Language)', 'Data Analysis', 'Leadership', 'Operations', 'Problem Solving'}
-⚠️ Missing Skills: {'Management', 'Project Management', 'Business Process', 'Business Requirements'}</code></pre>
+<pre><code>✅ Covered Skills: {'Communication', 'Problem Solving', 'Operations', 'SQL (Programming Language)', 'Data Analysis', 'Leadership'}
+⚠️ Missing Skills: {'Management', 'Project Management', 'Business Requirements', 'Business Process'}</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -413,7 +421,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p><strong>Results and Improvement Plan</strong> Our team analyzed and compared their self-assessed skills scores with the top ten most in-demand industry skills extracted from job postings. The results showed strong coverage across technical areas, particularly in data analytics, SQL, and operations, with Python, programming languages, and cloud computing as the foundation. These skills align closely with market demand and position the team well for data-centric and technical roles.</p>
+<p><strong>Results</strong> Our team analyzed and compared their self-assessed skills scores with the top ten most in-demand industry skills extracted from job postings. The results showed strong coverage across technical areas, particularly in data analytics, SQL, and operations, with Python, programming languages, and cloud computing as the foundation. These skills align closely with market demand and position the team well for data-centric and technical roles.</p>
 <p>However, the analysis also revealed significant shortcomings. The team lacked formal expertise in project management, business needs, and leadership. While corporate HR departments consistently emphasize these areas as crucial for roles bridging technology and business, particularly in managing teams or translating technology solutions into business value, our overall coverage was 60%, highlighting significant room for improvement.</p>
 <p><strong>Improvement Plan</strong> While our team has certain strengths in technical skills like data analysis, SQL, and cloud computing, a comparison with industry requirements reveals significant shortcomings. Project management, business needs analysis, and communication are particularly important skills that recruiters value most, yet they are currently largely absent within our team. Therefore, if we aspire to take on more comprehensive roles in the future, relying solely on technical proficiency will not be enough.</p>
 <p>To address our shortcomings, we need to proactively develop these soft skills. For example, in class group assignments, we can try creating a project coordination role to hone project management and communication skills through practical experience. Outside of class, we can leverage BU resources to participate in projects and courses related to Project Management and Business Process Management to enhance these skills. Leadership is also a weakness worth addressing. While each of us has demonstrated organizational skills to varying degrees, our overall level is still insufficient. This can be developed through rotating leadership roles within the group.</p>

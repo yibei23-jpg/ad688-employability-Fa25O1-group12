@@ -1,0 +1,44 @@
+---
+title: "Evaluating Personal Job Market Prospects in 2024"
+subtitle: "Final Report"
+author:
+  - name: Yibei Yu, Fuhan Zhang, Jonathan Leon
+    affiliations:
+      - id: bu
+        name: Boston University
+        city: Boston
+        state: MA
+date: today
+date-format: long
+format:
+  docx: default
+bibliography: references.bib
+csl: csl/econometrica.csl
+---
+
+## Executive Summary
+This report uses Lightcast job posting data to conduct a comprehensive analysis of job market trends through 2024, assessing the impact of skills, industries, and job types on employability and compensation. The team, comprised of Yibei Yu, Fuhan Zhang, and Jonathan Leon, applied a structured analytical process, including data cleaning, exploratory data analysis (EDA), clustering, and regression modeling.
+
+The EDA shows that hiring activity is concentrated in the information technology, computer systems design, and consulting industries, demonstrating the impact of digital transformation. Salary analysis reveals that positions in finance, healthcare, and professional services command higher average salaries, while remote work opportunities still only account for about one-fifth of total job postings.
+
+K-means clustering categorizes job postings into two main groups: positions requiring machine learning (ML) and data science (DS) skills, and those requiring non-technical skills. The machine learning/data science (ML/DS) cluster exhibits a clear upward trend in salary and exhibits higher skill complexity. Multiple regression models confirm that ML/DS requirements generate a measurable salary premium, particularly in the information and retail trade industries, although this effect is not uniform across all industries.
+
+Overall, the analysis indicates that technical specialization, particularly in analytics and machine learning, continues to provide job seekers with a competitive advantage. However, adoption of these capabilities is uneven, and future workforce growth will depend on how non-technical sectors integrate data-driven decision-making. For professionals entering the market, developing and mastering quantitative, analytical, and digital transformation skills remains the clearest path to long-term career resilience and higher earning potential.
+
+---
+
+{{< include index.qmd >}}
+{{< include about.qmd >}}
+{{< include career_plan.qmd >}}
+{{< include skill_gap_analysis.qmd >}}
+{{< include research_introduction.qmd >}}
+{{< include eda.qmd >}}
+{{< include data_analysis.qmd >}}
+{{< include regression_classification.qmd >}}
+
+--- 
+
+## Overall Insights and Conclusion
+This project has given us a clearer understanding of how data skills impact job opportunities and salaries in today's market. Our analysis revealed some useful insights, including strong demand for data-related positions in industries such as information technology, consulting, and finance. Jobs requiring machine learning or data science skills generally command higher salaries, which explains the growing value of technical and analytical skills.
+
+At the same time, we've learned that salary advantages aren't equal across industries. Some sectors are still in the early stages of digital transformation, which means opportunities are likely to increase in the future. For student job seekers like us, developing data, programming, and analytical thinking skills can provide a clear advantage, especially when combined with strong communication and teamwork skills. Overall, this project helped us connect data analysis with practical career plans and better understand which skills will be most critical for employability in 2024 and beyond.

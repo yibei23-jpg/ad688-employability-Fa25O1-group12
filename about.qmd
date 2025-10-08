@@ -8,4 +8,7 @@ I am a graduate student in Applied Data Analytics at Boston University. My acade
 
 ## Jonathan Leon
 I am a graduate student in Insurance Management at Boston University with a career focused entirely on the corporate property segment of the insurance industry. I’m pursuing this degree to broaden my skill set, particularly in analytics, and to develop the capabilities needed to contribute to the digital transformation initiatives shaping the future of the industry.
+
+## Fuhan Zhang
+I am a graduate student in Applied Business Analytics at Boston University. My academic and professional interests include data analytics, risk management, insurance, and market analysis. With an undergraduate background in actuarial science, I aim to integrate analytical and quantitative skills into the insurance and data analytics industries. My goal is to secure an internship or entry-level position next semester that bridges these two fields, ultimately pursuing a career where data-driven insights enhance actuarial and risk management practices.
 ---

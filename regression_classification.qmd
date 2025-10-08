@@ -1,5 +1,6 @@
 ---
 title: "Regression, Classification, and Topic Insights"
+subtitle: "Analyzing Salary and Industry Trends for ML/Data Science Roles"
 author:
   - name: Yibei Yu, Fuhan Zhang, Jonathan Leon
     affiliations:
@@ -15,6 +16,9 @@ format:
     number-sections: true
     df-print: paged
 ---
+## Introduction
+This module extends previous analyses by applying **machine-learning clustering and regression models** to identify salary patterns across industries, contrasting jobs that require machine learning (ML) / data-science (DS) skills with those that do not.
+
 ```{python}
 import pandas as pd
 import missingno as msno
@@ -234,12 +238,12 @@ else:
 
   # outline ML jobs (do not add a legend entry for the outline)
   ml_sub = sample_df[sample_df['ml_flag']]
-  plt.scatter(ml_sub['x_jitter'], ml_sub['salary_num'], facecolors='none', edgecolors='k', s=45, linewidths=0.6)
+  plt.scatter(ml_sub['x_jitter'], ml_sub['salary_num'], facecolors='none', edgecolors='k', s=45, linewidths=0.6,label='ML/DS Job Postings')
 
   # Use linear scale so we can show dollar ticks every $25,000 as requested
   plt.yscale('linear')
   plt.xlabel('KMeans cluster (jittered)')
-  plt.ylabel('Salary (USD, log scale)')
+  plt.ylabel('Salary (USD)')
   plt.title('KMeans clusters: Salary by NAICS group; ML jobs outlined')
   # Label x-axis clusters explicitly: 1 = ML jobs, 0 = Non-ML jobs
   cluster_order = sorted(plot_df['cluster'].unique())
@@ -387,6 +391,8 @@ else:
   print('Saved regression predicted-salary figure to', out_png2)
 
 ``` 
+## Conclusion
+Both models highlight that while ML/DS skills correlate with higher earning potential in specific industries—particularly Information and Professional & Technical Services—the overall job-market premium is not universal. This suggests that data-driven expertise remains concentrated in certain sectors, offering a clear signal for students to prioritize industry context when developing advanced analytical skills.
 
 # Analysis
 Based on the KMeans clustering, we expected to see higher salaries across industries for roles requiring machine learning and data science skills. However, the regression results showed that only Information and Retail Trade—along with “Other”—had higher salaries for jobs requiring those skills. This suggests that while job postings requiring ML/DS skills tend to include higher salary outliers, the overall demand for these skills may still be relatively niche. In many industries, organizations may not yet know how to fully incorporate machine learning and data science into their operations, meaning that the highest-paying roles still emphasize more traditional skill sets. It’s likely that performing this same analysis five or ten years from now would yield very different results as these skills become more widely adopted and in demand across currently slower-to-adapt industries.
