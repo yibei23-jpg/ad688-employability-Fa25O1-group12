@@ -1,6 +1,6 @@
 ---
-title: "Evaluating Personal Job Market Prospects in 2024"
-subtitle: "Final Report"
+title: "Final Report"
+subtitle: "Evaluating Personal Job Market Prospects in 2024"
 author:
   - name: Yibei Yu, Fuhan Zhang, Jonathan Leon
     affiliations:
@@ -14,6 +14,16 @@ format:
   docx: default
 bibliography: references.bib
 csl: csl/econometrica.csl
+execute:
+  merge-yaml: false
+
+---
+
+# Final Report  
+### Evaluating Personal Job Market Prospects in 2024  
+Yibei Yu, Fuhan Zhang, Jonathan Leon  
+October 10, 2025  
+
 ---
 
 ## Executive Summary
@@ -28,13 +38,14 @@ Overall, the analysis indicates that technical specialization, particularly in a
 ---
 
 {{< include index.qmd >}}
-{{< include about.qmd >}}
-{{< include career_plan.qmd >}}
-{{< include skill_gap_analysis.qmd >}}
-{{< include research_introduction.qmd >}}
-{{< include eda.qmd >}}
-{{< include data_analysis.qmd >}}
-{{< include regression_classification.qmd >}}
+{{< include about.qmd >}}                      
+{{< include research_introduction.qmd >}}     
+{{< include skill_gap_analysis.qmd >}}        
+{{< include eda.qmd >}}                      
+{{< include data_analysis.qmd >}}             
+{{< include regression_classification.qmd >}} 
+{{< include career_plan.qmd >}}               
+
 
 --- 
 

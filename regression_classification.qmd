@@ -2,20 +2,20 @@
 title: "Regression, Classification, and Topic Insights"
 subtitle: "Analyzing Salary and Industry Trends for ML/Data Science Roles"
 author:
-  - name: Yibei Yu, Fuhan Zhang, Jonathan Leon
+  - name: "Yibei Yu, Fuhan Zhang, Jonathan Leon"
     affiliations:
       - id: bu
         name: Boston University
         city: Boston
         state: MA
+date: "2025-09-27"
 bibliography: references.bib
 csl: csl/econometrica.csl
-format: 
-  html:
-    toc: true
-    number-sections: true
-    df-print: paged
+toc: true
+format:
+  html: default
 ---
+
 ## Introduction
 This module extends previous analyses by applying **machine-learning clustering and regression models** to identify salary patterns across industries, contrasting jobs that require machine learning (ML) / data-science (DS) skills with those that do not.
 
@@ -378,7 +378,7 @@ else:
 
   # Map boolean to readable labels and plot side-by-side bars for predicted salary by industry
   pred_df['requires_label'] = pred_df['is_ml_job'].map({True: 'Jobs requiring ML/DS skills', False: 'Jobs not requiring ML/DS skills'})
-  plt.figure(figsize=(14,7))
+  plt.figure(figsize=(18,9),dpi =300)
   sns.barplot(data=pred_df, x='naics_top', y='predicted_salary', hue='requires_label')
   plt.xlabel('Industry (top)')
   plt.ylabel('Predicted Salary (USD)')
@@ -387,7 +387,7 @@ else:
   plt.legend(title='Requirement')
   plt.tight_layout()
   out_png2 = 'figures/regression_predicted_salary_by_industry.png'
-  plt.savefig(out_png2, dpi=220)
+  plt.savefig(out_png2, dpi=300, bbox_inches="tight")
   print('Saved regression predicted-salary figure to', out_png2)
 
 ``` 

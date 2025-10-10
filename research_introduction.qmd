@@ -1,7 +1,7 @@
 ---
 title: "Business Analytics, Data Science, and Machine Learning Trends"
 author: "Group 12"
-date: 2025-09-27
+date: "2025-09-27"
 toc: true
 bibliography: references.bib
 csl: csl/econometrica.csl
